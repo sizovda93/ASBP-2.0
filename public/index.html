@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>АСПБ — Арбитражное управление</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="ambient-light"></div>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-left">
+                <span id="topbar-text"></span>
+            </div>
+            <div class="top-bar-right" style="display:flex;gap:24px;align-items:center;">
+                <div class="messengers">
+                    <a id="topbar-viber" href="#">Viber</a>
+                    <a id="topbar-whatsapp" href="#">WhatsApp</a>
+                    <a id="topbar-telegram" href="#">Telegram</a>
+                </div>
+                <a id="topbar-phone" class="hotline" href="#"></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="nav-container">
+                <a href="/" class="logo">
+                    <span id="nav-logo">АСПБ</span>
+                    <span class="logo-dot"></span>
+                </a>
+                <nav class="primary-nav" id="primary-nav"></nav>
+                <a id="nav-cta" href="#contact" class="btn btn-glass">Связаться</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero-section reveal">
+            <div class="container" style="display:flex;justify-content:center;">
+                <div class="hero-widget">
+                    <div class="hero-inner" id="hero-inner">
+                        <div class="hero-content">
+                            <div class="hero-label">
+                                <div class="hero-icon-container">
+                                    <svg viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2zm0 4.5l6.5 13.5h-13L12 6.5z"></path></svg>
+                                </div>
+                                <span class="hero-label-text" id="hero-label"></span>
+                            </div>
+                            <h1 class="hero-title text-gradient" id="hero-title"></h1>
+                            <p class="hero-subtitle" id="hero-subtitle"></p>
+                            <div style="display:flex;gap:16px;flex-wrap:wrap;">
+                                <a id="hero-btn-primary" href="#" class="btn btn-primary"></a>
+                                <a id="hero-btn-secondary" href="#" class="btn btn-glass"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats -->
+        <section class="stats-section reveal">
+            <div class="container">
+                <div class="stats-grid" id="stats-grid"></div>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section class="services-section reveal" id="services">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag" id="services-tag"></span>
+                    <h2 class="section-title" id="services-title"></h2>
+                </div>
+                <div class="services-grid" id="services-grid"></div>
+            </div>
+        </section>
+
+        <!-- Cases -->
+        <section class="cases-section reveal" id="cases">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag" id="cases-tag"></span>
+                    <h2 class="section-title" id="cases-title"></h2>
+                </div>
+                <div class="cases-grid" id="cases-grid"></div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="contact-section reveal" id="contact">
+            <div class="container">
+                <div class="contact-widget">
+                    <div>
+                        <span class="section-tag" id="contact-tag"></span>
+                        <h2 class="section-title" style="margin-bottom:24px;" id="contact-title"></h2>
+                        <p style="color:var(--text-secondary);margin-bottom:40px;font-size:16px;" id="contact-subtitle"></p>
+                        <div style="display:flex;gap:32px;flex-wrap:wrap;">
+                            <div>
+                                <span class="stat-label">Горячая линия</span>
+                                <div style="font-size:20px;font-weight:500;" id="contact-phone-display"></div>
+                            </div>
+                            <div>
+                                <span class="stat-label">Email</span>
+                                <div style="font-size:20px;font-weight:500;" id="contact-email-display"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <form id="contact-form" style="background:rgba(0,0,0,0.3);padding:40px;border-radius:24px;border:1px solid var(--card-border);">
+                        <div class="form-group">
+                            <label class="form-label">Ваше имя</label>
+                            <input type="text" class="form-input" id="contact-name" placeholder="Иванов Иван" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Телефон</label>
+                            <input type="tel" class="form-input" id="contact-phone-input" placeholder="+7 (999) 000-00-00" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Сумма долга</label>
+                            <select class="form-input" id="contact-debt-select"></select>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width:100%;margin-top:16px;">Оставить заявку</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="/" class="footer-logo">
+                        <span id="footer-logo-text">АСПБ</span>
+                        <span class="logo-dot"></span>
+                    </a>
+                    <p id="footer-desc" style="margin-bottom:24px;"></p>
+                    <div class="messengers">
+                        <a id="footer-viber" href="#">Viber</a>
+                        <a id="footer-whatsapp" href="#">WhatsApp</a>
+                        <a id="footer-telegram" href="#">Telegram</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="color:white;margin-bottom:16px;">Услуги</h4>
+                    <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;">
+                        <li><a href="#">Для партнёров</a></li>
+                        <li><a href="#">Физическим лицам</a></li>
+                        <li><a href="#">Юридическим лицам</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color:white;margin-bottom:16px;">Компания</h4>
+                    <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;">
+                        <li><a href="#">О нас</a></li>
+                        <li><a href="#cases">Выигранные дела</a></li>
+                        <li><a href="#">Отзывы</a></li>
+                        <li><a href="#">Стоимость</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color:white;margin-bottom:16px;">Контакты</h4>
+                    <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;">
+                        <li id="footer-phone"></li>
+                        <li id="footer-email"></li>
+                        <li style="font-size:12px;margin-top:16px;" id="footer-copyright"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>
