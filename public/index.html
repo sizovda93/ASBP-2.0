@@ -181,6 +181,30 @@
         </div>
     </footer>
 
+    <!-- ── Legal modals ───────────────────────────────────────────── -->
+    <div class="legal-bar">
+        <div class="container">
+            <div class="legal-links">
+                <button class="legal-link" onclick="openLegal('privacy')">Политика конфиденциальности</button>
+                <span class="legal-sep">·</span>
+                <button class="legal-link" onclick="openLegal('pd')">Обработка персональных данных</button>
+                <span class="legal-sep">·</span>
+                <button class="legal-link" onclick="openLegal('cookies')">Cookies</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy Policy -->
+    <div class="legal-overlay" id="legal-overlay" onclick="closeLegal(event)">
+        <div class="legal-modal" id="legal-modal">
+            <div class="legal-modal-header">
+                <h2 class="legal-modal-title" id="legal-modal-title"></h2>
+                <button class="legal-modal-close" onclick="closeLegal()">×</button>
+            </div>
+            <div class="legal-modal-body" id="legal-modal-body"></div>
+        </div>
+    </div>
+
     <script src="/js/main.js"></script>
 </body>
 </html>
