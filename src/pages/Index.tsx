@@ -54,6 +54,11 @@ export default function Index() {
 
   const navItems = settings.nav_items ? JSON.parse(settings.nav_items) : [];
   const debtOptions = settings.contact_debt_options ? JSON.parse(settings.contact_debt_options) : [];
+  const heroSecondaryHref = settings.hero_btn_secondary_href?.trim();
+  const heroSecondaryResolvedHref =
+    !heroSecondaryHref || heroSecondaryHref === '#cases'
+      ? '/platform'
+      : heroSecondaryHref;
 
   const [legalType, setLegalType] = useState<string | null>(null);
   const openLegal = useCallback((type: string) => setLegalType(type), []);
@@ -85,7 +90,7 @@ export default function Index() {
           btnPrimary={settings.hero_btn_primary}
           btnPrimaryHref={settings.hero_btn_primary_href}
           btnSecondary={settings.hero_btn_secondary}
-          btnSecondaryHref={settings.hero_btn_secondary_href}
+          btnSecondaryHref={heroSecondaryResolvedHref}
           backgroundImage={settings.hero_background_image}
         />
         <Stats items={stats} />
