@@ -13,6 +13,33 @@ const COURSES = [
   { icon: '🎓', title: 'Практика для действующих специалистов' },
 ];
 
+const PROGRAMS = [
+  {
+    title: 'Оспаривание сделок',
+    desc: 'Полный обзор практики БФЛ и рабочие подходы к сложным ситуациям.',
+  },
+  {
+    title: 'Неосвобождение от обязательств',
+    desc: 'Разбор одного из самых чувствительных рисков процедуры банкротства.',
+  },
+  {
+    title: 'Юридические аспекты БФЛ',
+    desc: 'Системная база для старта и усиления практики банкротства физических лиц.',
+  },
+  {
+    title: 'Продажи юридических услуг',
+    desc: 'Как выстраивать продажи в нише долгов и банкротства без хаоса и потерь.',
+  },
+  {
+    title: 'Эффективная команда',
+    desc: 'Подходы к управлению людьми, ролями и качеством работы внутри практики.',
+  },
+  {
+    title: 'Практика для действующих специалистов',
+    desc: 'Прикладное обучение без лишней теории — с фокусом на реальные кейсы и результат.',
+  },
+];
+
 const AUDIENCE = [
   { title: 'Юристы' },
   { title: 'Адвокаты' },
@@ -109,6 +136,24 @@ export default function TrainingPage() {
                 <div key={course.title} className="training-card">
                   <div className="training-card-dot" />
                   <span className="training-card-title">{course.title}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Programs Block */}
+        <section className="programs-section reveal">
+          <div className="container">
+            <div className="programs-header">
+              <h2 className="programs-title">Направления программ</h2>
+            </div>
+            <div className="programs-grid">
+              {PROGRAMS.map((p, i) => (
+                <div key={p.title} className="programs-card">
+                  <span className="programs-card-num">0{i + 1}</span>
+                  <h3 className="programs-card-title">{p.title}</h3>
+                  <p className="programs-card-desc">{p.desc}</p>
                 </div>
               ))}
             </div>
