@@ -13,6 +13,15 @@ const COURSES = [
   { icon: '🎓', title: 'Практика для действующих специалистов' },
 ];
 
+const AUDIENCE = [
+  { title: 'Юристы' },
+  { title: 'Адвокаты' },
+  { title: 'Финансовые управляющие' },
+  { title: 'Помощники и сотрудники' },
+  { title: 'Руководители практик' },
+  { title: 'Партнёры юридических компаний' },
+];
+
 export default function TrainingPage() {
   const [settings, setSettings] = useState<SiteSettings>({});
   const [loaded, setLoaded] = useState(false);
@@ -100,6 +109,28 @@ export default function TrainingPage() {
                 <div key={course.title} className="training-card">
                   <div className="training-card-dot" />
                   <span className="training-card-title">{course.title}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Audience Block */}
+        <section className="audience-section reveal">
+          <div className="container">
+            <div className="audience-header">
+              <h2 className="audience-title">Кому подойдёт обучение</h2>
+            </div>
+            <div className="audience-grid">
+              {AUDIENCE.map((item) => (
+                <div key={item.title} className="audience-card">
+                  <div className="audience-card-icon">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                      <circle cx="12" cy="7" r="4" />
+                    </svg>
+                  </div>
+                  <span className="audience-card-title">{item.title}</span>
                 </div>
               ))}
             </div>
