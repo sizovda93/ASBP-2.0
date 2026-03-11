@@ -3,6 +3,7 @@ import { type ReactNode } from 'react';
 const SECTIONS = [
   { key: 'dashboard', label: 'Дашборд', group: 'Обзор', icon: 'grid' },
   { key: 'submissions', label: 'Заявки', group: 'Обзор', icon: 'mail', badge: true },
+  { key: 'platform_demo', label: 'Заявки на платформу', group: 'Обзор', icon: 'mail' },
   { key: 'topbar', label: 'Верхняя строка', group: 'Контент', icon: 'lines' },
   { key: 'navigation', label: 'Навигация', group: 'Контент', icon: 'home' },
   { key: 'hero', label: 'Герой (баннер)', group: 'Контент', icon: 'star' },

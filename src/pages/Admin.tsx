@@ -10,6 +10,7 @@ import ServicesManager from '../components/admin/ServicesManager';
 import CasesManager from '../components/admin/CasesManager';
 import GalleryManager from '../components/admin/GalleryManager';
 import PlatformScreenshots from '../components/admin/PlatformScreenshots';
+import PlatformDemoSubmissions from '../components/admin/PlatformDemoSubmissions';
 import SettingsPanel from '../components/admin/SettingsPanel';
 import { ImagePicker } from '../components/admin/shared';
 
@@ -63,6 +64,8 @@ export default function Admin() {
         return <Dashboard submissions={submissions} onRefresh={loadAll} />;
       case 'submissions':
         return <SubmissionsManager submissions={submissions} onRefresh={loadAll} />;
+      case 'platform_demo':
+        return <PlatformDemoSubmissions submissions={submissions} onRefresh={loadAll} />;
       case 'topbar':
         return <TopBarEditor settings={settings} onRefresh={loadAll} />;
       case 'navigation':

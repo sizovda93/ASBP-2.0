@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type FormEvent } from 'react';
 import { api, type SiteSettings } from '../lib/api';
 import TopBar from '../components/site/TopBar';
 import Header from '../components/site/Header';
@@ -71,6 +71,39 @@ const PARTNER_GETS = [
 export default function PlatformPage() {
   const [settings, setSettings] = useState<SiteSettings>({});
   const [loaded, setLoaded] = useState(false);
+
+  // Demo CTA modal state
+  const [demoModal, setDemoModal] = useState(false);
+  const [demoName, setDemoName] = useState('');
+  const [demoPhone, setDemoPhone] = useState('');
+  const [demoEmail, setDemoEmail] = useState('');
+  const [demoState, setDemoState] = useState<'idle' | 'sending' | 'success'>('idle');
+
+  async function handleDemoSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (!demoName.trim() || !demoPhone.trim()) return;
+    setDemoState('sending');
+    try {
+      await api.submissions.create({
+        name: demoName,
+        phone: demoPhone,
+        email: demoEmail,
+        interest: 'Демонстрация платформы',
+      });
+      setDemoState('success');
+    } catch {
+      setDemoState('idle');
+      alert('Ошибка при отправке. Попробуйте ещё раз.');
+    }
+  }
+
+  function closeDemoModal() {
+    setDemoModal(false);
+    setDemoState('idle');
+    setDemoName('');
+    setDemoPhone('');
+    setDemoEmail('');
+  }
 
   useEffect(() => {
     api.settings.getAll().then((s) => {
@@ -289,6 +322,42 @@ export default function PlatformPage() {
             </div>
           </div>
         </section>
+
+        {/* Platform CTA Block */}
+        <section className="training-cta-section reveal">
+          <div className="container">
+            <div className="training-cta-inner">
+              <div className="training-cta-text">
+                <h2 className="training-cta-title">Подключение и внедрение платформы</h2>
+                <p className="training-cta-subtitle">
+                  Оставьте заявку, чтобы узнать, как платформа внедряется в работу партнёра.
+                  Или перейдите на сайт платформы и войдите в рабочую систему.
+                </p>
+              </div>
+              <div className="training-cta-buttons">
+                <button className="btn btn-primary" onClick={() => setDemoModal(true)}>
+                  Запросить демонстрацию
+                </button>
+                <a
+                  href={settings.platform_site_url || '#'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-glass"
+                >
+                  Сайт платформы
+                </a>
+                <a
+                  href="https://sau.pro/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-secondary"
+                >
+                  Войти в платформу
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
       <SiteFooter
         logo={settings.nav_logo}
@@ -300,6 +369,52 @@ export default function PlatformPage() {
         whatsapp={settings.footer_whatsapp}
         telegram={settings.footer_telegram}
       />
+
+      {/* Platform Demo Modal */}
+      {demoModal && (
+        <div
+          className="contact-modal-overlay"
+          onClick={e => { if (e.target === e.currentTarget && demoState !== 'sending') closeDemoModal(); }}
+        >
+          <div className="contact-modal">
+            {demoState === 'success' ? (
+              <div className="form-success">
+                <div style={{ fontSize: '32px', marginBottom: '16px' }}>✓</div>
+                <div>Заявка принята! Мы свяжемся с вами и расскажем, как внедрить платформу в вашу работу.</div>
+                <button className="btn btn-glass" style={{ marginTop: '24px' }} onClick={closeDemoModal}>Закрыть</button>
+              </div>
+            ) : (
+              <>
+                <div className="contact-modal-header">
+                  <h3 className="contact-modal-title">Запросить демонстрацию платформы</h3>
+                  <button className="contact-modal-close" onClick={closeDemoModal}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                  </button>
+                </div>
+                <form onSubmit={handleDemoSubmit}>
+                  <div className="form-group">
+                    <label className="form-label">ФИО</label>
+                    <input type="text" className="form-input" placeholder="Иванов Иван Иванович" value={demoName} onChange={e => setDemoName(e.target.value)} required />
+                  </div>
+                  <div className="form-group">
+                    <label className="form-label">Телефон</label>
+                    <input type="tel" className="form-input" placeholder="+7 (999) 000-00-00" value={demoPhone} onChange={e => setDemoPhone(e.target.value)} required />
+                  </div>
+                  <div className="form-group">
+                    <label className="form-label">Email</label>
+                    <input type="email" className="form-input" placeholder="example@mail.ru" value={demoEmail} onChange={e => setDemoEmail(e.target.value)} />
+                  </div>
+                  <button type="submit" className="btn btn-primary" style={{ width: '100%', marginTop: '8px' }} disabled={demoState === 'sending'}>
+                    {demoState === 'sending' ? 'Отправка...' : 'Отправить заявку'}
+                  </button>
+                </form>
+              </>
+            )}
+          </div>
+        </div>
+      )}
     </>
   );
 }
