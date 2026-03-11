@@ -1,3 +1,4 @@
+import { Link, useLocation } from 'react-router-dom';
 import type { NavItem } from '../../lib/api';
 
 interface HeaderProps {
@@ -22,11 +23,19 @@ export default function Header({ logo, ctaText, ctaHref, items }: HeaderProps) {
                 <div key={item.id} className="nav-item">
                   {item.title}
                   <div className="dropdown">
-                    {item.dropdown.map((d, i) => (
-                      <a key={i} href={d.href}>{d.title}</a>
-                    ))}
+                    {item.dropdown.map((d, i) =>
+                      d.href && d.href.startsWith('/') && !d.href.startsWith('/#') ? (
+                        <Link key={i} to={d.href}>{d.title}</Link>
+                      ) : (
+                        <a key={i} href={d.href}>{d.title}</a>
+                      )
+                    )}
                   </div>
                 </div>
+              ) : item.href && item.href.startsWith('/') && !item.href.startsWith('/#') ? (
+                <Link key={item.id} to={item.href} className="nav-item">
+                  {item.title}
+                </Link>
               ) : (
                 <a key={item.id} href={item.href} className="nav-item">
                   {item.title}

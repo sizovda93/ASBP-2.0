@@ -27,7 +27,7 @@ export default function Training() {
           ))}
         </div>
         <div className="training-cta">
-          <a href="#" className="btn btn-glass training-btn">Подробнее об обучении</a>
+          <a href="/training" className="btn btn-glass training-btn">Подробнее об обучении</a>
         </div>
       </div>
     </section>
