@@ -1,15 +1,32 @@
 {
-  "name": "aspb",
+  "name": "aspb-2.0",
+  "private": true,
   "version": "2.0.0",
+  "type": "module",
   "description": "АСПБ — Арбитражное управление",
-  "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "npx nodemon server.js"
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:client": "vite",
+    "dev:server": "cd server && npm run dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "migrate": "cd server && npx tsx src/migrate.ts",
+    "migrate:seed": "cd server && npx tsx src/migrate.ts --seed"
   },
   "dependencies": {
-    "express": "^4.18.2",
-    "express-session": "^1.17.3",
-    "multer": "^2.1.1"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.2"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react-swc": "^3.5.0",
+    "autoprefixer": "^10.4.20",
+    "concurrently": "^9.0.1",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.13",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11"
   }
 }

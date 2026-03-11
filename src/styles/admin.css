@@ -251,8 +251,8 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* Forms */
-.form-group { margin-bottom: 20px; }
-.form-group label {
+.admin-panel .form-group { margin-bottom: 20px; }
+.admin-panel .form-group label {
     display: block;
     font-size: 13px;
     color: var(--text-muted);
@@ -311,8 +311,8 @@ select.form-control option { background: #0e1d19; }
 }
 .image-preview.visible { display: block; }
 
-/* Buttons */
-.btn {
+/* Buttons (scoped to admin) */
+.admin-panel .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -327,12 +327,12 @@ select.form-control option { background: #0e1d19; }
     transition: all 0.2s;
 }
 
-.btn-primary {
+.admin-panel .btn-primary {
     background: linear-gradient(135deg, var(--accent-dark), #0d4d2e);
     color: white;
     box-shadow: 0 4px 12px rgba(26,122,74,0.2);
 }
-.btn-primary:hover { filter: brightness(1.1); transform: translateY(-1px); }
+.admin-panel .btn-primary:hover { filter: brightness(1.1); transform: translateY(-1px); }
 
 .btn-secondary {
     background: rgba(255,255,255,0.06);
