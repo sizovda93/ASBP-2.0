@@ -53,6 +53,9 @@ export interface Submission {
   id: number;
   name: string;
   phone: string;
+  email: string;
+  interest: string;
+  comment: string;
   debt: string;
   status: string;
   created_at: string;
@@ -120,7 +123,7 @@ export const api = {
 
   submissions: {
     list: () => request<Submission[]>('/submissions'),
-    create: (data: { name: string; phone: string; debt: string }) =>
+    create: (data: { name: string; phone: string; email?: string; interest?: string; comment?: string; debt?: string }) =>
       request<Submission>('/submissions', { method: 'POST', body: JSON.stringify(data) }),
     updateStatus: (id: number, status: string) =>
       request<Submission>(`/submissions/${id}`, { method: 'PUT', body: JSON.stringify({ status }) }),

@@ -16,14 +16,14 @@ router.get('/', async (_req: Request, res: Response) => {
 // POST /api/submissions
 router.post('/', async (req: Request, res: Response) => {
   try {
-    const { name, phone, debt } = req.body;
+    const { name, phone, email, interest, comment, debt } = req.body;
     if (!name || !phone) {
       res.status(400).json({ error: 'Name and phone are required' });
       return;
     }
     const result = await query(
-      'INSERT INTO submissions (name, phone, debt) VALUES ($1,$2,$3) RETURNING *',
-      [name, phone, debt || '']
+      'INSERT INTO submissions (name, phone, email, interest, comment, debt) VALUES ($1,$2,$3,$4,$5,$6) RETURNING *',
+      [name, phone, email || '', interest || debt || '', comment || '', debt || '']
     );
     res.status(201).json(result.rows[0]);
   } catch (err: any) {

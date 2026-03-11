@@ -79,7 +79,9 @@ export function SubmissionTable({ items, showActions, onRefresh }: SubmissionTab
           <th>Дата</th>
           <th>Имя</th>
           <th>Телефон</th>
-          <th>Сумма долга</th>
+          <th>Email</th>
+          <th>Интерес</th>
+          <th>Комментарий</th>
           <th>Статус</th>
           {showActions && <th />}
         </tr>
@@ -90,7 +92,9 @@ export function SubmissionTable({ items, showActions, onRefresh }: SubmissionTab
             <td style={{ color: 'var(--text-muted)', whiteSpace: 'nowrap' }}>{formatDate(s.created_at)}</td>
             <td>{s.name}</td>
             <td>{s.phone}</td>
-            <td>{s.debt}</td>
+            <td>{s.email || '—'}</td>
+            <td>{s.interest || s.debt || '—'}</td>
+            <td style={{ maxWidth: '200px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{s.comment || '—'}</td>
             <td>
               <span className={`status-badge status-${s.status}`}>
                 {s.status === 'new' ? '● Новая' : '✓ Обработана'}
