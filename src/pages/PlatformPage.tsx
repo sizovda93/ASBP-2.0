@@ -5,7 +5,7 @@ import Header from '../components/site/Header';
 import SiteFooter from '../components/site/SiteFooter';
 
 const STEPS = [
-  { num: '01', title: 'Партнёр передаёт клиента' },
+  { num: '01', title: 'Вы передаёте клиента' },
   { num: '02', title: 'Дело попадает в систему сопровождения' },
   { num: '03', title: 'Документы, статусы и коммуникация ведутся внутри платформы' },
   { num: '04', title: 'Партнёр, должник и помощник взаимодействуют в едином рабочем пространстве' },
