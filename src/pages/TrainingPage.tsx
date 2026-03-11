@@ -40,6 +40,15 @@ const PROGRAMS = [
   },
 ];
 
+const RESULTS = [
+  { title: 'Быстрее вход в нишу' },
+  { title: 'Сильнее команда' },
+  { title: 'Выше конверсия в договор' },
+  { title: 'Меньше ошибок в работе' },
+  { title: 'Больше экспертизы' },
+  { title: 'Более системный рост практики' },
+];
+
 const AUDIENCE = [
   { title: 'Юристы' },
   { title: 'Адвокаты' },
@@ -154,6 +163,27 @@ export default function TrainingPage() {
                   <span className="programs-card-num">0{i + 1}</span>
                   <h3 className="programs-card-title">{p.title}</h3>
                   <p className="programs-card-desc">{p.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Results Block */}
+        <section className="results-section reveal">
+          <div className="container">
+            <div className="results-header">
+              <h2 className="results-title">Что даёт обучение вашей практике</h2>
+            </div>
+            <div className="results-grid">
+              {RESULTS.map((item, i) => (
+                <div key={item.title} className="results-card">
+                  <div className="results-card-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M7 17L17 7M17 7H7M17 7v10" />
+                    </svg>
+                  </div>
+                  <span className="results-card-title">{item.title}</span>
                 </div>
               ))}
             </div>

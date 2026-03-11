@@ -642,6 +642,83 @@ nav.primary-nav { display: flex; gap: 32px; align-items: center; }
     min-width: 240px;
 }
 
+/* Results Section (TrainingPage) */
+.results-section {
+    padding: 100px 0;
+    border-top: 1px solid var(--card-border);
+}
+.results-header {
+    margin-bottom: 56px;
+}
+.results-title {
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(255,255,255,0.75) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0;
+}
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+.results-card {
+    background: var(--card-base);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 28px 32px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    transition: all 0.35s var(--ease-out);
+    position: relative;
+    overflow: hidden;
+}
+.results-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(46,184,122,0.08) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.35s;
+}
+.results-card:hover {
+    border-color: rgba(46,184,122,0.35);
+    transform: translateY(-3px);
+}
+.results-card:hover::before { opacity: 1; }
+.results-card-arrow {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: rgba(46,184,122,0.1);
+    border: 1px solid rgba(46,184,122,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.35s var(--ease-out);
+}
+.results-card-arrow svg {
+    width: 18px;
+    height: 18px;
+    stroke: var(--accent-blue);
+}
+.results-card:hover .results-card-arrow {
+    background: rgba(46,184,122,0.18);
+    border-color: rgba(46,184,122,0.4);
+}
+.results-card-title {
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--text-primary);
+    line-height: 1.35;
+}
+
 /* Programs Section (TrainingPage) */
 .programs-section {
     padding: 100px 0;
