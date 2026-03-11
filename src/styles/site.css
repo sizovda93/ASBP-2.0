@@ -642,6 +642,70 @@ nav.primary-nav { display: flex; gap: 32px; align-items: center; }
     min-width: 240px;
 }
 
+/* How Section (TrainingPage) */
+.how-section {
+    padding: 100px 0;
+    border-top: 1px solid var(--card-border);
+    border-bottom: 1px solid var(--card-border);
+    background: rgba(46, 184, 122, 0.02);
+}
+.how-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+}
+.how-left {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: sticky;
+    top: 100px;
+}
+.how-title {
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(255,255,255,0.75) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+    line-height: 1.2;
+}
+.how-right {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.how-text {
+    font-size: 18px;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin: 0;
+}
+.how-features {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.how-feature {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 16px;
+    color: var(--text-primary);
+    font-weight: 450;
+}
+.how-feature-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent-blue);
+    flex-shrink: 0;
+    box-shadow: 0 0 8px rgba(46,184,122,0.5);
+}
+
 /* Results Section (TrainingPage) */
 .results-section {
     padding: 100px 0;

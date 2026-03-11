@@ -211,6 +211,42 @@ export default function TrainingPage() {
             </div>
           </div>
         </section>
+
+        {/* How it Works Block */}
+        <section className="how-section reveal">
+          <div className="container">
+            <div className="how-inner">
+              <div className="how-left">
+                <span className="section-tag">Формат</span>
+                <h2 className="how-title">Как проходит обучение</h2>
+              </div>
+              <div className="how-right">
+                <p className="how-text">
+                  Практические материалы, прикладные разборы, структурированные программы и
+                  знания, которые можно внедрять в работу сразу после прохождения.
+                </p>
+                <div className="how-features">
+                  <div className="how-feature">
+                    <div className="how-feature-dot" />
+                    <span>Онлайн-формат, доступный в любое время</span>
+                  </div>
+                  <div className="how-feature">
+                    <div className="how-feature-dot" />
+                    <span>Материалы остаются у вас после окончания</span>
+                  </div>
+                  <div className="how-feature">
+                    <div className="how-feature-dot" />
+                    <span>Проверка знаний и обратная связь с экспертами</span>
+                  </div>
+                  <div className="how-feature">
+                    <div className="how-feature-dot" />
+                    <span>Фокус на результат без излишней теории</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
       <SiteFooter
         logo={settings.nav_logo}
