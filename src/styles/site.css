@@ -642,6 +642,83 @@ nav.primary-nav { display: flex; gap: 32px; align-items: center; }
     min-width: 240px;
 }
 
+/* Platform Tasks Section */
+.ptasks-section {
+    padding: 80px 0 100px;
+    border-top: 1px solid var(--card-border);
+}
+.ptasks-header {
+    margin-bottom: 48px;
+}
+.ptasks-title {
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(255,255,255,0.75) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0;
+}
+.ptasks-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+.ptasks-card {
+    background: var(--card-base);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 28px 32px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    transition: all 0.35s var(--ease-out);
+    position: relative;
+    overflow: hidden;
+}
+.ptasks-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(46,184,122,0.07) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.35s;
+}
+.ptasks-card:hover {
+    border-color: rgba(46,184,122,0.35);
+    transform: translateY(-3px);
+}
+.ptasks-card:hover::before { opacity: 1; }
+.ptasks-card-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: rgba(46,184,122,0.1);
+    border: 1px solid rgba(46,184,122,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.35s var(--ease-out);
+}
+.ptasks-card-icon svg {
+    width: 18px;
+    height: 18px;
+    stroke: var(--accent-blue);
+}
+.ptasks-card:hover .ptasks-card-icon {
+    background: rgba(46,184,122,0.18);
+    border-color: rgba(46,184,122,0.4);
+}
+.ptasks-card-title {
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--text-primary);
+    line-height: 1.35;
+}
+
 /* Training CTA Section */
 .training-cta-section {
     padding: 100px 0;

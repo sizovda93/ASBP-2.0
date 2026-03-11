@@ -4,6 +4,15 @@ import TopBar from '../components/site/TopBar';
 import Header from '../components/site/Header';
 import SiteFooter from '../components/site/SiteFooter';
 
+const TASKS = [
+  { title: 'Нет хаоса в чатах' },
+  { title: 'Не теряются документы' },
+  { title: 'Видны этапы по делу' },
+  { title: 'Проще контролировать процессы' },
+  { title: 'Удобнее работать с клиентом' },
+  { title: 'Легче масштабировать практику' },
+];
+
 export default function PlatformPage() {
   const [settings, setSettings] = useState<SiteSettings>({});
   const [loaded, setLoaded] = useState(false);
@@ -80,6 +89,27 @@ export default function PlatformPage() {
                   </p>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Tasks Block */}
+        <section className="ptasks-section reveal">
+          <div className="container">
+            <div className="ptasks-header">
+              <h2 className="ptasks-title">Какие задачи решает платформа</h2>
+            </div>
+            <div className="ptasks-grid">
+              {TASKS.map((item) => (
+                <div key={item.title} className="ptasks-card">
+                  <div className="ptasks-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                  </div>
+                  <span className="ptasks-card-title">{item.title}</span>
+                </div>
+              ))}
             </div>
           </div>
         </section>
