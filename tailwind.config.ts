@@ -5,8 +5,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        "aspb-bg": "#07100e",
-        "aspb-card": "#0c1815",
+        "aspb-bg": "#11231E",
+        "aspb-card": "#162E29",
         "aspb-border": "rgba(46, 184, 122, 0.12)",
         "aspb-accent": "#2eb87a",
         "aspb-accent-dark": "#1a7a4a",

@@ -10,9 +10,10 @@ export default function Cases({ tag, title, items }: CasesProps) {
   return (
     <section className="cases-section reveal" id="cases">
       <div className="container">
-        <div className="section-header">
+        <div className="section-header cases-section-header">
           <span className="section-tag">{tag || 'Судебная практика'}</span>
-          <h2 className="section-title">{title || 'Выигранные дела'}</h2>
+          <h2 className="section-title cases-section-title">{title || 'Выигранные дела'}</h2>
+          <p className="cases-section-subtitle">Практика, подтверждённая результатом</p>
         </div>
         <div className="cases-grid">
           {items.map((c) => (

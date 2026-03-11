@@ -1,11 +1,15 @@
 import { useEffect, useState, useCallback } from 'react';
-import { api, type SiteSettings, type Stat, type Service, type Case } from '../lib/api';
+import { api, type SiteSettings, type Stat, type Case } from '../lib/api';
 import TopBar from '../components/site/TopBar';
 import Header from '../components/site/Header';
 import Hero from '../components/site/Hero';
 import Stats from '../components/site/Stats';
-import Services from '../components/site/Services';
+import PartnerValue from '../components/site/PartnerValue';
+import Ecosystem from '../components/site/Ecosystem';
+import Training from '../components/site/Training';
+import Platform from '../components/site/Platform';
 import Cases from '../components/site/Cases';
+import Formats from '../components/site/Formats';
 import Contact from '../components/site/Contact';
 import SiteFooter from '../components/site/SiteFooter';
 import LegalModals from '../components/site/LegalModals';
@@ -13,7 +17,6 @@ import LegalModals from '../components/site/LegalModals';
 export default function Index() {
   const [settings, setSettings] = useState<SiteSettings>({});
   const [stats, setStats] = useState<Stat[]>([]);
-  const [services, setServices] = useState<Service[]>([]);
   const [cases, setCases] = useState<Case[]>([]);
   const [loaded, setLoaded] = useState(false);
 
@@ -21,12 +24,10 @@ export default function Index() {
     Promise.all([
       api.settings.getAll(),
       api.stats.list(),
-      api.services.list(),
       api.cases.list(),
-    ]).then(([s, st, sv, cs]) => {
+    ]).then(([s, st, cs]) => {
       setSettings(s);
       setStats(st);
-      setServices(sv);
       setCases(cs);
       setLoaded(true);
     }).catch(err => console.error('Failed to load content:', err));
@@ -88,16 +89,16 @@ export default function Index() {
           backgroundImage={settings.hero_background_image}
         />
         <Stats items={stats} />
-        <Services
-          tag={settings.services_tag}
-          title={settings.services_title}
-          items={services}
-        />
+        <PartnerValue />
+        <Ecosystem />
+        <Training />
+        <Platform />
         <Cases
           tag={settings.cases_tag}
           title={settings.cases_title}
           items={cases}
         />
+        <Formats />
         <Contact
           tag={settings.contact_tag}
           title={settings.contact_title}

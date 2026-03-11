@@ -9,6 +9,10 @@ export default function Stats({ items }: StatsProps) {
   return (
     <section className="stats-section reveal">
       <div className="container">
+        <div className="stats-header">
+          <div className="badge" style={{ marginBottom: '16px' }}>Результаты</div>
+          <h2 className="stats-title">Практика, подтверждённая цифрами</h2>
+        </div>
         <div className="stats-grid">
           {items.map((s) => (
             <div key={s.id} className="stat-card">
