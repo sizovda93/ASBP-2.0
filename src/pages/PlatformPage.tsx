@@ -4,6 +4,44 @@ import TopBar from '../components/site/TopBar';
 import Header from '../components/site/Header';
 import SiteFooter from '../components/site/SiteFooter';
 
+const MOBILE_CARDS = [
+  {
+    title: 'Общение с телефона',
+    desc: 'Вся важная переписка доступна в мобильном формате.',
+  },
+  {
+    title: 'Быстрый отклик',
+    desc: 'Проще оперативно отвечать и не терять темп работы по делу.',
+  },
+  {
+    title: 'Доступ к информации в любой момент',
+    desc: 'Ключевые сообщения и данные по делу всегда под рукой.',
+  },
+  {
+    title: 'Удобство для всех участников',
+    desc: 'Партнёру, должнику и помощнику проще взаимодействовать в привычном мобильном формате.',
+  },
+];
+
+const COMM_CARDS = [
+  {
+    title: 'Чат с партнёром',
+    desc: 'Партнёр может быстро получать информацию по делу, задавать вопросы и быть в курсе движения процедуры.',
+  },
+  {
+    title: 'Чат с должником',
+    desc: 'Клиенту проще передавать информацию, задавать вопросы и понимать, что происходит по его делу.',
+  },
+  {
+    title: 'Чат с помощником арбитражного управляющего',
+    desc: 'Операционные вопросы решаются быстрее, без потери информации в мессенджерах.',
+  },
+  {
+    title: 'Коммуникация в контексте дела',
+    desc: 'Все сообщения привязаны к конкретному делу, поэтому ничего не теряется и не путается.',
+  },
+];
+
 const TASKS = [
   { title: 'Нет хаоса в чатах' },
   { title: 'Не теряются документы' },
@@ -134,6 +172,59 @@ export default function PlatformPage() {
                 <div key={item.title} className="pgets-card">
                   <h3 className="pgets-card-title">{item.title}</h3>
                   <p className="pgets-card-desc">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Communication Block */}
+        <section className="pcomm-section reveal">
+          <div className="container">
+            <div className="pcomm-header">
+              <h2 className="pcomm-title">Вся коммуникация по делу —<br />внутри платформы</h2>
+              <p className="pcomm-subtitle">
+                Вместо разрозненных чатов и постоянных пересылок вся рабочая переписка ведётся
+                в едином пространстве по конкретному делу.
+              </p>
+            </div>
+            <div className="pcomm-grid">
+              {COMM_CARDS.map((item) => (
+                <div key={item.title} className="pcomm-card">
+                  <div className="pcomm-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                    </svg>
+                  </div>
+                  <h3 className="pcomm-card-title">{item.title}</h3>
+                  <p className="pcomm-card-desc">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Mobile App Block */}
+        <section className="pmobile-section reveal">
+          <div className="container">
+            <div className="pmobile-header">
+              <h2 className="pmobile-title">Мобильное приложение для<br />удобной работы с коммуникацией</h2>
+              <p className="pmobile-subtitle">
+                Партнёр, клиент и участники процесса могут вести коммуникацию по делу
+                прямо с телефона — без привязки к рабочему месту.
+              </p>
+            </div>
+            <div className="pmobile-grid">
+              {MOBILE_CARDS.map((item) => (
+                <div key={item.title} className="pmobile-card">
+                  <div className="pmobile-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="5" y="2" width="14" height="20" rx="2" />
+                      <circle cx="12" cy="17" r="1" fill="currentColor" />
+                    </svg>
+                  </div>
+                  <h3 className="pmobile-card-title">{item.title}</h3>
+                  <p className="pmobile-card-desc">{item.desc}</p>
                 </div>
               ))}
             </div>

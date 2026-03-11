@@ -642,6 +642,287 @@ nav.primary-nav { display: flex; gap: 32px; align-items: center; }
     min-width: 240px;
 }
 
+/* Platform Mobile Section */
+.pmobile-section {
+    padding: 100px 0;
+    border-top: 1px solid var(--card-border);
+    background: rgba(46, 184, 122, 0.02);
+}
+.pmobile-header {
+    margin-bottom: 56px;
+    max-width: 800px;
+}
+.pmobile-title {
+    font-size: clamp(32px, 3.5vw, 52px);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(255,255,255,0.75) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+}
+.pmobile-subtitle {
+    font-size: 18px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 0;
+    max-width: 680px;
+}
+.pmobile-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+.pmobile-card {
+    background: var(--card-base);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s var(--ease-out);
+}
+.pmobile-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(46,184,122,0.4), transparent);
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+.pmobile-card:hover {
+    border-color: rgba(46,184,122,0.3);
+    transform: translateY(-4px);
+}
+.pmobile-card:hover::before { opacity: 1; }
+.pmobile-card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: rgba(46,184,122,0.1);
+    border: 1px solid rgba(46,184,122,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.35s var(--ease-out);
+}
+.pmobile-card-icon svg {
+    width: 22px;
+    height: 22px;
+    stroke: var(--accent-blue);
+}
+.pmobile-card:hover .pmobile-card-icon {
+    background: rgba(46,184,122,0.18);
+    border-color: rgba(46,184,122,0.4);
+}
+.pmobile-card-title {
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.3;
+}
+.pmobile-card-desc {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin: 0;
+}
+
+/* Platform Communication Section */
+.pcomm-section {
+    padding: 100px 0;
+    border-top: 1px solid var(--card-border);
+}
+.pcomm-header {
+    margin-bottom: 56px;
+    max-width: 800px;
+}
+.pcomm-title {
+    font-size: clamp(32px, 3.5vw, 52px);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(255,255,255,0.75) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+}
+.pcomm-subtitle {
+    font-size: 18px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 0;
+    max-width: 680px;
+}
+.pcomm-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+.pcomm-card {
+    background: var(--card-base);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s var(--ease-out);
+}
+.pcomm-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(46,184,122,0.4), transparent);
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+.pcomm-card:hover {
+    border-color: rgba(46,184,122,0.3);
+    transform: translateY(-4px);
+}
+.pcomm-card:hover::before { opacity: 1; }
+.pcomm-card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: rgba(46,184,122,0.1);
+    border: 1px solid rgba(46,184,122,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.35s var(--ease-out);
+}
+.pcomm-card-icon svg {
+    width: 22px;
+    height: 22px;
+    stroke: var(--accent-blue);
+}
+.pcomm-card:hover .pcomm-card-icon {
+    background: rgba(46,184,122,0.18);
+    border-color: rgba(46,184,122,0.4);
+}
+.pcomm-card-title {
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.3;
+}
+.pcomm-card-desc {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin: 0;
+}
+
+/* Platform Mobile Section */
+.pmobile-section {
+    padding: 100px 0;
+    border-top: 1px solid var(--card-border);
+    background: rgba(46, 184, 122, 0.02);
+}
+.pmobile-header {
+    margin-bottom: 56px;
+    max-width: 800px;
+}
+.pmobile-title {
+    font-size: clamp(32px, 3.5vw, 52px);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(255,255,255,0.75) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+}
+.pmobile-subtitle {
+    font-size: 18px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 0;
+    max-width: 680px;
+}
+.pmobile-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+.pmobile-card {
+    background: var(--card-base);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s var(--ease-out);
+}
+.pmobile-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(46,184,122,0.4), transparent);
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+.pmobile-card:hover {
+    border-color: rgba(46,184,122,0.3);
+    transform: translateY(-4px);
+}
+.pmobile-card:hover::before { opacity: 1; }
+.pmobile-card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: rgba(46,184,122,0.1);
+    border: 1px solid rgba(46,184,122,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.35s var(--ease-out);
+}
+.pmobile-card-icon svg {
+    width: 22px;
+    height: 22px;
+    stroke: var(--accent-blue);
+}
+.pmobile-card:hover .pmobile-card-icon {
+    background: rgba(46,184,122,0.18);
+    border-color: rgba(46,184,122,0.4);
+}
+.pmobile-card-title {
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.3;
+}
+.pmobile-card-desc {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin: 0;
+}
+
 /* Platform Partner Gets Section */
 .pgets-section {
     padding: 100px 0;
