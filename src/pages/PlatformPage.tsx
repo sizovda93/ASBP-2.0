@@ -13,6 +13,15 @@ const TASKS = [
   { title: 'Легче масштабировать практику' },
 ];
 
+const PARTNER_GETS = [
+  { title: 'Личный кабинет', desc: 'Вся информация по делам и клиентам собрана в одном месте.' },
+  { title: 'Контроль этапов', desc: 'Понимание, на каком этапе находится каждое дело и что происходит сейчас.' },
+  { title: 'Документы в системе', desc: 'Структурированное хранение важных данных без потерь в переписках.' },
+  { title: 'Прозрачность работы', desc: 'Партнёру проще контролировать сопровождение и держать клиента в курсе.' },
+  { title: 'Быстрый доступ к информации', desc: 'Ключевые данные по делам всегда под рукой.' },
+  { title: 'Основа для масштабирования', desc: 'Система помогает сохранять качество работы при росте объёма дел.' },
+];
+
 export default function PlatformPage() {
   const [settings, setSettings] = useState<SiteSettings>({});
   const [loaded, setLoaded] = useState(false);
@@ -108,6 +117,23 @@ export default function PlatformPage() {
                     </svg>
                   </div>
                   <span className="ptasks-card-title">{item.title}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Partner Gets Block */}
+        <section className="pgets-section reveal">
+          <div className="container">
+            <div className="pgets-header">
+              <h2 className="pgets-title">Что получает партнёр</h2>
+            </div>
+            <div className="pgets-grid">
+              {PARTNER_GETS.map((item) => (
+                <div key={item.title} className="pgets-card">
+                  <h3 className="pgets-card-title">{item.title}</h3>
+                  <p className="pgets-card-desc">{item.desc}</p>
                 </div>
               ))}
             </div>

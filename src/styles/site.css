@@ -642,6 +642,69 @@ nav.primary-nav { display: flex; gap: 32px; align-items: center; }
     min-width: 240px;
 }
 
+/* Platform Partner Gets Section */
+.pgets-section {
+    padding: 100px 0;
+    border-top: 1px solid var(--card-border);
+    background: rgba(46, 184, 122, 0.02);
+}
+.pgets-header {
+    margin-bottom: 56px;
+}
+.pgets-title {
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(255,255,255,0.75) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0;
+}
+.pgets-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+.pgets-card {
+    background: var(--card-base);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    padding: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s var(--ease-out);
+}
+.pgets-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(46,184,122,0.4), transparent);
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+.pgets-card:hover {
+    border-color: rgba(46,184,122,0.3);
+    transform: translateY(-4px);
+}
+.pgets-card:hover::before { opacity: 1; }
+.pgets-card-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+.pgets-card-desc {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin: 0;
+}
+
 /* Platform Tasks Section */
 .ptasks-section {
     padding: 80px 0 100px;
