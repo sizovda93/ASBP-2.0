@@ -20,7 +20,7 @@ export default function Platform() {
             <p className="platform-subtitle">
               Партнёр получает удобный инструмент для контроля статусов, документов и взаимодействия по каждому клиенту. Все ключевые процессы — в одном месте.
             </p>
-            <a href="#" className="btn btn-glass platform-btn">Смотреть платформу</a>
+            <a href="/platform" className="btn btn-glass platform-btn">Смотреть платформу</a>
           </div>
           <div className="platform-right">
             <div className="platform-grid">
