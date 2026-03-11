@@ -8,22 +8,15 @@ dotenv.config({ path: path.resolve(__dirname, '../../.env') });
 
 const { Pool } = pg;
 
-const schema = process.env.DATABASE_SCHEMA || 'aspb';
-
 const pool = new Pool({
   host: process.env.DATABASE_HOST || 'localhost',
   port: parseInt(process.env.DATABASE_PORT || '5432'),
-  database: process.env.DATABASE_NAME || 'bankruptcy_academy',
-  user: process.env.DATABASE_USER || 'ba_app',
+  database: process.env.DATABASE_NAME || 'aspb_site',
+  user: process.env.DATABASE_USER || 'aspb_app',
   password: process.env.DATABASE_PASSWORD || '',
   max: 20,
   idleTimeoutMillis: 30000,
   connectionTimeoutMillis: 2000,
-});
-
-// Set search_path for each new connection
-pool.on('connect', (client) => {
-  client.query(`SET search_path TO ${schema}, public`);
 });
 
 export async function query(text: string, params?: any[]) {

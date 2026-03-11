@@ -1,7 +1,6 @@
 -- ==========================================
 -- ASPB Site Seed Data
 -- ==========================================
-SET search_path TO aspb, public;
 
 -- Top Bar settings
 INSERT INTO site_settings (setting_key, setting_value) VALUES

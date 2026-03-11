@@ -8,15 +8,8 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: path.resolve(__dirname, '../../.env') });
 
 const migrationsDir = path.resolve(__dirname, '../../migrations');
-const schema = process.env.DATABASE_SCHEMA || 'aspb';
-
-async function ensureSchema() {
-  await query(`CREATE SCHEMA IF NOT EXISTS ${schema}`);
-  await query(`SET search_path TO ${schema}, public`);
-}
 
 async function ensureMigrationsTable() {
-  await ensureSchema();
   await query(`
     CREATE TABLE IF NOT EXISTS _migrations (
       id SERIAL PRIMARY KEY,

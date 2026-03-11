@@ -2,10 +2,6 @@
 -- ASPB Site Database Schema
 -- ==========================================
 
--- Create schema for ASPB to isolate from other projects
-CREATE SCHEMA IF NOT EXISTS aspb;
-SET search_path TO aspb, public;
-
 -- Site Settings (key-value store for section content)
 CREATE TABLE IF NOT EXISTS site_settings (
   id SERIAL PRIMARY KEY,
