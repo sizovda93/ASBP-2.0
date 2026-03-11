@@ -642,6 +642,58 @@ nav.primary-nav { display: flex; gap: 32px; align-items: center; }
     min-width: 240px;
 }
 
+/* Training CTA Section */
+.training-cta-section {
+    padding: 100px 0;
+    border-top: 1px solid var(--card-border);
+}
+.training-cta-inner {
+    background: var(--card-base);
+    border: 1px solid var(--card-border);
+    border-radius: 32px;
+    padding: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+    position: relative;
+    overflow: hidden;
+}
+.training-cta-inner::before {
+    content: '';
+    position: absolute;
+    top: -60%; left: -10%;
+    width: 50%; height: 200%;
+    background: radial-gradient(circle, rgba(46,184,122,0.12) 0%, transparent 70%);
+    pointer-events: none;
+}
+.training-cta-text {
+    flex: 1;
+    max-width: 560px;
+}
+.training-cta-title {
+    font-size: clamp(24px, 2.5vw, 36px);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(255,255,255,0.8) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 16px;
+}
+.training-cta-subtitle {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 0;
+}
+.training-cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
 /* How Section (TrainingPage) */
 .how-section {
     padding: 100px 0;

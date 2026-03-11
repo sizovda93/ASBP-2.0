@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type FormEvent } from 'react';
 import { api, type SiteSettings } from '../lib/api';
 import TopBar from '../components/site/TopBar';
 import Header from '../components/site/Header';
@@ -91,6 +91,42 @@ export default function TrainingPage() {
   }, [loaded]);
 
   const navItems = settings.nav_items ? JSON.parse(settings.nav_items) : [];
+
+  // Training CTA modal state
+  const [ctaModal, setCtaModal] = useState(false);
+  const [ctaName, setCtaName] = useState('');
+  const [ctaPhone, setCtaPhone] = useState('');
+  const [ctaEmail, setCtaEmail] = useState('');
+  const [ctaComment, setCtaComment] = useState('');
+  const [ctaState, setCtaState] = useState<'idle' | 'sending' | 'success'>('idle');
+
+  async function handleCtaSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (!ctaName.trim() || !ctaPhone.trim()) return;
+    setCtaState('sending');
+    try {
+      await api.submissions.create({
+        name: ctaName,
+        phone: ctaPhone,
+        email: ctaEmail,
+        interest: 'Обучение для партнёров',
+        comment: ctaComment,
+      });
+      setCtaState('success');
+    } catch {
+      setCtaState('idle');
+      alert('Ошибка при отправке. Попробуйте ещё раз.');
+    }
+  }
+
+  function closeCtaModal() {
+    setCtaModal(false);
+    setCtaState('idle');
+    setCtaName('');
+    setCtaPhone('');
+    setCtaEmail('');
+    setCtaComment('');
+  }
 
   if (!loaded) return null;
 
@@ -247,6 +283,34 @@ export default function TrainingPage() {
             </div>
           </div>
         </section>
+
+        {/* CTA Block */}
+        <section className="training-cta-section reveal">
+          <div className="container">
+            <div className="training-cta-inner">
+              <div className="training-cta-text">
+                <h2 className="training-cta-title">Получить программу обучения</h2>
+                <p className="training-cta-subtitle">
+                  Оставьте заявку — подберём программы под вашу роль, уровень подготовки и задачи команды.
+                  Или перейдите в Академию, чтобы посмотреть программы обучения самостоятельно.
+                </p>
+              </div>
+              <div className="training-cta-buttons">
+                <button className="btn btn-primary" onClick={() => setCtaModal(true)}>
+                  Получить программу
+                </button>
+                <a
+                  href="http://bankrot.academy/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-glass"
+                >
+                  Перейти в Академию АСПБ
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
       <SiteFooter
         logo={settings.nav_logo}
@@ -258,6 +322,56 @@ export default function TrainingPage() {
         whatsapp={settings.footer_whatsapp}
         telegram={settings.footer_telegram}
       />
+
+      {/* Training CTA Modal */}
+      {ctaModal && (
+        <div
+          className="contact-modal-overlay"
+          onClick={e => { if (e.target === e.currentTarget && ctaState !== 'sending') closeCtaModal(); }}
+        >
+          <div className="contact-modal">
+            {ctaState === 'success' ? (
+              <div className="form-success">
+                <div style={{ fontSize: '32px', marginBottom: '16px' }}>✓</div>
+                <div>Заявка принята! Мы сяжемся с вами и подберём программу обучения.</div>
+                <button className="btn btn-glass" style={{ marginTop: '24px' }} onClick={closeCtaModal}>Закрыть</button>
+              </div>
+            ) : (
+              <>
+                <div className="contact-modal-header">
+                  <h3 className="contact-modal-title">Получить программу обучения</h3>
+                  <button className="contact-modal-close" onClick={closeCtaModal}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                  </button>
+                </div>
+                <form onSubmit={handleCtaSubmit}>
+                  <div className="form-group">
+                    <label className="form-label">ФИО</label>
+                    <input type="text" className="form-input" placeholder="Иванов Иван Иванович" value={ctaName} onChange={e => setCtaName(e.target.value)} required />
+                  </div>
+                  <div className="form-group">
+                    <label className="form-label">Телефон</label>
+                    <input type="tel" className="form-input" placeholder="+7 (999) 000-00-00" value={ctaPhone} onChange={e => setCtaPhone(e.target.value)} required />
+                  </div>
+                  <div className="form-group">
+                    <label className="form-label">Email</label>
+                    <input type="email" className="form-input" placeholder="example@mail.ru" value={ctaEmail} onChange={e => setCtaEmail(e.target.value)} />
+                  </div>
+                  <div className="form-group">
+                    <label className="form-label">Комментарий (необязательно)</label>
+                    <textarea className="form-input" placeholder="Роль, уровень подготовки, задачи команды…" rows={3} value={ctaComment} onChange={e => setCtaComment(e.target.value)} style={{ resize: 'none' }} />
+                  </div>
+                  <button type="submit" className="btn btn-primary" style={{ width: '100%', marginTop: '8px' }} disabled={ctaState === 'sending'}>
+                    {ctaState === 'sending' ? 'Отправка...' : 'Отправить заявку'}
+                  </button>
+                </form>
+              </>
+            )}
+          </div>
+        </div>
+      )}
     </>
   );
 }
