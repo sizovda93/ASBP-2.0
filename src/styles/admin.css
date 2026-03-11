@@ -538,6 +538,48 @@ select.form-control option { background: #0e1d19; }
 }
 .upload-zone-icon { font-size: 32px; margin-bottom: 8px; }
 
+/* Platform Screenshots Admin */
+.screenshots-admin-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+.screenshot-admin-card {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.screenshot-upload-zone {
+    width: 100%;
+    border: 2px dashed var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.2s;
+    background: var(--surface);
+}
+.screenshot-upload-zone:hover {
+    border-color: var(--accent);
+}
+.screenshot-preview {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+.screenshot-empty {
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: var(--text-secondary);
+}
+.screenshot-empty svg {
+    opacity: 0.4;
+}
+
 /* Toast */
 .toast-container {
     position: fixed;

@@ -9,6 +9,7 @@ import StatsManager from '../components/admin/StatsManager';
 import ServicesManager from '../components/admin/ServicesManager';
 import CasesManager from '../components/admin/CasesManager';
 import GalleryManager from '../components/admin/GalleryManager';
+import PlatformScreenshots from '../components/admin/PlatformScreenshots';
 import SettingsPanel from '../components/admin/SettingsPanel';
 import { ImagePicker } from '../components/admin/shared';
 
@@ -80,6 +81,8 @@ export default function Admin() {
         return <FooterEditor settings={settings} onRefresh={loadAll} />;
       case 'gallery':
         return <GalleryManager onRefresh={loadAll} />;
+      case 'platform_screenshots':
+        return <PlatformScreenshots settings={settings} onRefresh={loadAll} />;
       case 'settings':
         return <SettingsPanel onLogout={handleLogout} />;
       default:

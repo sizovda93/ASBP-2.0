@@ -12,6 +12,7 @@ const SECTIONS = [
   { key: 'contacts', label: 'Контакты', group: 'Контент', icon: 'phone' },
   { key: 'footer', label: 'Футер', group: 'Контент', icon: 'lines' },
   { key: 'gallery', label: 'Галерея', group: 'Медиа', icon: 'image' },
+  { key: 'platform_screenshots', label: 'Скриншоты платформы', group: 'Медиа', icon: 'image' },
   { key: 'settings', label: 'Настройки', group: 'Система', icon: 'gear' },
 ];
 

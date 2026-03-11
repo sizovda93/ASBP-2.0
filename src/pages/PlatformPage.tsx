@@ -256,6 +256,39 @@ export default function PlatformPage() {
             </div>
           </div>
         </section>
+
+        {/* Screenshots Block */}
+        <section className="pscreens-section reveal">
+          <div className="container">
+            <div className="pscreens-header">
+              <h2 className="pscreens-title">Интерфейс платформы</h2>
+            </div>
+            <div className="pscreens-grid">
+              {[
+                { key: 'platform_screenshot_1', label: 'Личный кабинет партнёра' },
+                { key: 'platform_screenshot_2', label: 'Карточка дела' },
+                { key: 'platform_screenshot_3', label: 'Экран внутреннего чата' },
+                { key: 'platform_screenshot_4', label: 'Экран мобильного приложения' },
+              ].map((item) => (
+                <div key={item.key} className="pscreen-card">
+                  {settings[item.key] ? (
+                    <img src={settings[item.key]} alt={item.label} className="pscreen-img" />
+                  ) : (
+                    <div className="pscreen-placeholder">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="2"/>
+                        <circle cx="8.5" cy="8.5" r="1.5"/>
+                        <polyline points="21 15 16 10 5 21"/>
+                      </svg>
+                      <span>Скриншот будет здесь</span>
+                    </div>
+                  )}
+                  <div className="pscreen-label">{item.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
       </main>
       <SiteFooter
         logo={settings.nav_logo}
