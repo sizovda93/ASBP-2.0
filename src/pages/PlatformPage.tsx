@@ -4,6 +4,14 @@ import TopBar from '../components/site/TopBar';
 import Header from '../components/site/Header';
 import SiteFooter from '../components/site/SiteFooter';
 
+const STEPS = [
+  { num: '01', title: 'Партнёр передаёт клиента' },
+  { num: '02', title: 'Дело попадает в систему сопровождения' },
+  { num: '03', title: 'Документы, статусы и коммуникация ведутся внутри платформы' },
+  { num: '04', title: 'Партнёр, должник и помощник взаимодействуют в едином рабочем пространстве' },
+  { num: '05', title: 'Процесс становится прозрачным, управляемым и удобным для всех участников' },
+];
+
 const MOBILE_CARDS = [
   {
     title: 'Общение с телефона',
@@ -225,6 +233,24 @@ export default function PlatformPage() {
                   </div>
                   <h3 className="pmobile-card-title">{item.title}</h3>
                   <p className="pmobile-card-desc">{item.desc}</p>
+                </div>
+              ))}‌
+            </div>
+          </div>
+        </section>
+
+        {/* How it Works Steps Block */}
+        <section className="psteps-section reveal">
+          <div className="container">
+            <div className="psteps-header">
+              <h2 className="psteps-title">Как строится работа</h2>
+            </div>
+            <div className="psteps-list">
+              {STEPS.map((step) => (
+                <div key={step.num} className="pstep">
+                  <span className="pstep-num">{step.num}</span>
+                  <div className="pstep-line" />
+                  <span className="pstep-title">{step.title}</span>
                 </div>
               ))}
             </div>
