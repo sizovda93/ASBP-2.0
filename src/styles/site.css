@@ -211,7 +211,7 @@ nav.primary-nav { display: flex; gap: 32px; align-items: center; }
 }
 
 /* Hero */
-.hero-section { padding: 60px 0 100px; display: flex; justify-content: center; }
+.hero-section { padding: 60px 0 100px; display: flex; justify-content: center; position: relative; }
 .hero-widget {
     background: var(--card-base);
     border-radius: 40px;
@@ -278,14 +278,14 @@ nav.primary-nav { display: flex; gap: 32px; align-items: center; }
     pointer-events: none;
 }
 .hero-floating-card-left {
-    left: -360px;
-    top: 12%;
+    right: max(12px, calc(50% - 590px));
+    top: 28%;
     transform: translateY(-50%);
     animation: heroFloatLeft 6.8s ease-in-out infinite;
 }
 .hero-floating-card-right {
-    right: -360px;
-    top: 32%;
+    right: max(12px, calc(50% - 590px));
+    top: 68%;
     animation: heroFloatRight 7.4s ease-in-out infinite;
 }
 .hero-floating-label {
@@ -359,8 +359,8 @@ nav.primary-nav { display: flex; gap: 32px; align-items: center; }
     50% { transform: translateY(-11px) translateX(-5px); }
 }
 @media (max-width: 1360px) {
-    .hero-floating-card-left { left: -220px; }
-    .hero-floating-card-right { right: -220px; }
+    .hero-floating-card-left { right: max(12px, calc(50% - 590px)); left: auto; }
+    .hero-floating-card-right { right: max(12px, calc(50% - 590px)); left: auto; }
 }
 .hero-label {
     display: flex;

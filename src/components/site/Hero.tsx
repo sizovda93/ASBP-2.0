@@ -22,25 +22,25 @@ export default function Hero({
 
   return (
     <section className="hero-section reveal">
+      <div className="hero-floating-card hero-floating-card-left" aria-hidden="true">
+        <div className="hero-floating-title">Интеграция данных</div>
+        <div className="hero-floating-bars">
+          <span className="hero-floating-bar hero-floating-bar-long" />
+          <span className="hero-floating-bar hero-floating-bar-short" />
+        </div>
+        <div className="hero-floating-status">Sync Complete</div>
+      </div>
+
+      <div className="hero-floating-card hero-floating-card-right" aria-hidden="true">
+        <div className="hero-floating-label">
+          <span className="hero-floating-check">✓</span>
+          <span>Списано долгов</span>
+        </div>
+        <div className="hero-floating-value">₽ 4.5 млрд+</div>
+      </div>
+
       <div className="container" style={{ display: 'flex', justifyContent: 'center' }}>
         <div className="hero-widget">
-          <div className="hero-floating-card hero-floating-card-left" aria-hidden="true">
-            <div className="hero-floating-label">
-              <span className="hero-floating-check">✓</span>
-              <span>Списано долгов</span>
-            </div>
-            <div className="hero-floating-value">₽ 4.5 млрд+</div>
-          </div>
-
-          <div className="hero-floating-card hero-floating-card-right" aria-hidden="true">
-            <div className="hero-floating-title">Интеграция данных</div>
-            <div className="hero-floating-bars">
-              <span className="hero-floating-bar hero-floating-bar-long" />
-              <span className="hero-floating-bar hero-floating-bar-short" />
-            </div>
-            <div className="hero-floating-status">Sync Complete</div>
-          </div>
-
           <div className={innerClass} style={innerStyle}>
             <div className="hero-content">
               <div className="hero-label">
