@@ -12,6 +12,7 @@ interface FooterProps {
 export default function SiteFooter({
   logo, description, copyright, phone, email, viber, whatsapp, telegram,
 }: FooterProps) {
+  const telegramBotUrl = 'https://t.me/ASPB_help_bot';
   return (
     <footer>
       <div className="container">
@@ -23,24 +24,20 @@ export default function SiteFooter({
             </a>
             <p style={{ marginBottom: '24px' }}>{description}</p>
             <div className="messengers">
-              <a href={viber || '#'}>Viber</a>
-              <a href={whatsapp || '#'}>WhatsApp</a>
-              <a href={telegram || '#'}>Telegram</a>
+              <a href={telegramBotUrl} target="_blank" rel="noopener noreferrer">Telegram</a>
             </div>
           </div>
           <div>
             <h4 style={{ color: 'white', marginBottom: '16px' }}>Услуги</h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              <li><a href="#">Для партнёров</a></li>
-              <li><a href="#">Физическим лицам</a></li>
-              <li><a href="#">Юридическим лицам</a></li>
+              <li><a href="/platform">Цифровая платформа</a></li>
+              <li><a href="/training">Обучение для партнеров</a></li>
             </ul>
           </div>
           <div>
             <h4 style={{ color: 'white', marginBottom: '16px' }}>Компания</h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              <li><a href="#">О нас</a></li>
-              <li><a href="#cases">Выигранные дела</a></li>
+              <li><a href="/about">О нас</a></li>
               <li><a href="#">Отзывы</a></li>
               <li><a href="#">Стоимость</a></li>
             </ul>

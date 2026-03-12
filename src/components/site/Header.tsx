@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import type { NavItem } from '../../lib/api';
 
 interface HeaderProps {
@@ -9,6 +9,44 @@ interface HeaderProps {
 }
 
 export default function Header({ logo, ctaText, ctaHref, items }: HeaderProps) {
+  const resolveItemHref = (item: NavItem): string => {
+    if (item.href && item.href !== '#') return item.href;
+    if (item.title.trim().toLowerCase() === 'о нас') return '/about';
+    return item.href || '#';
+  };
+
+  const resolveDropdownItem = (parent: NavItem, child: { title: string; href: string }) => {
+    const isAbout = parent.title.trim().toLowerCase() === 'о нас';
+    const isClientStories = child.title.trim().toLowerCase() === 'истории клиентов';
+    const isFaq = /вопросы\s*-\s*ответы|вопросы\s*ответы/i.test(child.title.trim().toLowerCase());
+    if (isAbout && isClientStories) {
+      return { title: 'История компании', href: '/about' };
+    }
+    if (isAbout && isFaq) {
+      return { title: 'Вопросы - ответы', href: '/faq' };
+    }
+    return child;
+  };
+
+  const resolveDropdownItems = (parent: NavItem): { title: string; href: string }[] => {
+    const source = parent.dropdown || [];
+    const normalizedTitles = source.map((d) => d.title.trim().toLowerCase());
+    const hasLegacyServicesSet =
+      normalizedTitles.includes('для партнёров') ||
+      normalizedTitles.includes('для партнеров') ||
+      normalizedTitles.includes('физическим лицам') ||
+      normalizedTitles.includes('юридическим лицам');
+    const isServices = parent.title.trim().toLowerCase().includes('услуг');
+
+    if (isServices || hasLegacyServicesSet) {
+      return [
+        { title: 'Цифровая платформа', href: '/platform' },
+        { title: 'Обучение для партнеров', href: '/training' },
+      ];
+    }
+    return source;
+  };
+
   return (
     <header className="main-header">
       <div className="container">
@@ -18,30 +56,37 @@ export default function Header({ logo, ctaText, ctaHref, items }: HeaderProps) {
             <span className="logo-dot" />
           </a>
           <nav className="primary-nav">
-            {items.map((item) =>
-              item.dropdown && item.dropdown.length > 0 ? (
+            {items.map((item) => {
+              const itemHref = resolveItemHref(item);
+
+              return item.dropdown && item.dropdown.length > 0 ? (
                 <div key={item.id} className="nav-item">
-                  {item.title}
+                  {itemHref.startsWith('/') && !itemHref.startsWith('/#') ? (
+                    <Link to={itemHref} className="nav-item-title">{item.title}</Link>
+                  ) : (
+                    <a href={itemHref} className="nav-item-title">{item.title}</a>
+                  )}
                   <div className="dropdown">
-                    {item.dropdown.map((d, i) =>
-                      d.href && d.href.startsWith('/') && !d.href.startsWith('/#') ? (
-                        <Link key={i} to={d.href}>{d.title}</Link>
+                    {resolveDropdownItems(item).map((d, i) => {
+                      const dropdownItem = resolveDropdownItem(item, d);
+                      return dropdownItem.href && dropdownItem.href.startsWith('/') && !dropdownItem.href.startsWith('/#') ? (
+                        <Link key={i} to={dropdownItem.href}>{dropdownItem.title}</Link>
                       ) : (
-                        <a key={i} href={d.href}>{d.title}</a>
-                      )
-                    )}
+                        <a key={i} href={dropdownItem.href}>{dropdownItem.title}</a>
+                      );
+                    })}
                   </div>
                 </div>
-              ) : item.href && item.href.startsWith('/') && !item.href.startsWith('/#') ? (
-                <Link key={item.id} to={item.href} className="nav-item">
+              ) : itemHref && itemHref.startsWith('/') && !itemHref.startsWith('/#') ? (
+                <Link key={item.id} to={itemHref} className="nav-item">
                   {item.title}
                 </Link>
               ) : (
-                <a key={item.id} href={item.href} className="nav-item">
+                <a key={item.id} href={itemHref} className="nav-item">
                   {item.title}
                 </a>
-              )
-            )}
+              );
+            })}
           </nav>
           <a href={ctaHref || '#contact'} className="btn btn-glass">
             {ctaText || 'Связаться'}
