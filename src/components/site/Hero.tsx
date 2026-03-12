@@ -42,11 +42,19 @@ export default function Hero({
       <div className="container" style={{ display: 'flex', justifyContent: 'center' }}>
         <div className="hero-widget">
           <div className={innerClass} style={innerStyle}>
+            <div className="hero-visual-layer" aria-hidden="true">
+              <span className="hero-link-line hero-link-line-1" />
+              <span className="hero-link-line hero-link-line-2" />
+              <span className="hero-link-line hero-link-line-3" />
+              <span className="hero-glow-spot hero-glow-spot-1" />
+              <span className="hero-glow-spot hero-glow-spot-2" />
+              <span className="hero-glow-spot hero-glow-spot-3" />
+            </div>
             <div className="hero-content">
               <div className="hero-label">
-                <div className="hero-icon-container">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M12 2L2 22h20L12 2zm0 4.5l6.5 13.5h-13L12 6.5z" />
+                <div className="hero-icon-container hero-icon-container-play">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 4.5 5.5 18h13L12 4.5Z" />
                   </svg>
                 </div>
                 <span className="hero-label-text">{label}</span>
