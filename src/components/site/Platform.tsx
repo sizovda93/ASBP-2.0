@@ -15,8 +15,8 @@ const MOCK_COUNTERS = [
 
 const FEATURES_MED = [
   { title: 'Чат по каждому делу', sub: 'Прямая связь без мессенджеров' },
-  { title: 'Документы в системе', sub: 'Хранение и доступ в один клик' },
-  { title: 'Мобильный доступ', sub: 'С любого устройства' },
+  { title: 'Документы в одном месте', sub: 'Хранение и быстрый доступ без потерь в переписках' },
+  { title: 'Мобильное приложение', sub: 'Коммуникация и контроль дел с телефона' },
 ];
 
 const CHECK_ICON = (
@@ -54,7 +54,7 @@ export default function Platform() {
             <p className="platform-subtitle">
               Партнёр получает удобный инструмент для контроля статусов, документов и взаимодействия по каждому клиенту. Все ключевые процессы — в одном месте.
             </p>
-            <a href="/platform" className="btn btn-glass platform-btn">Смотреть платформу</a>
+            <a href="/platform" className="btn btn-glass platform-btn">Смотреть платформу <span className="platform-btn-arrow">→</span></a>
           </div>
 
           {/* Right — mockup + cards */}
@@ -142,6 +142,7 @@ export default function Platform() {
                 <div className="platform-feature-main-text">
                   <span className="platform-feature-main-title">Контроль этапов в реальном времени</span>
                   <span className="platform-feature-main-sub">Каждый статус и переход фиксируется в системе. Партнёр и клиент всегда видят актуальный прогресс процедуры.</span>
+                  <span className="platform-feature-badge">Актуальный статус по делу</span>
                 </div>
               </div>
               {/* Medium cards */}

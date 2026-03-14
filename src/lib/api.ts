@@ -47,6 +47,7 @@ export interface Case {
   card_size: string;
   accent: boolean;
   display_order: number;
+  category: string;
 }
 
 export interface Submission {

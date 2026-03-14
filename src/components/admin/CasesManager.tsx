@@ -21,7 +21,7 @@ export default function CasesManager({ cases, settings, onRefresh }: Props) {
   }
 
   function openAdd() {
-    formRef.current = { case_number: '', status: '', amount: '', description: '', card_size: 'large', accent: false };
+    formRef.current = { case_number: '', status: '', amount: '', description: '', card_size: 'large', accent: false, category: 'individual' };
     setModal({ open: true });
   }
 
@@ -29,6 +29,7 @@ export default function CasesManager({ cases, settings, onRefresh }: Props) {
     formRef.current = {
       case_number: item.case_number, status: item.status, amount: item.amount,
       description: item.description, card_size: item.card_size, accent: item.accent,
+      category: item.category || 'individual',
     };
     setModal({ open: true, item });
   }
@@ -115,8 +116,22 @@ function CaseForm({ initial, onChange }: { initial: any; onChange: (v: any) => v
         <input className="form-control" value={form.case_number} onChange={e => update('case_number', e.target.value)} />
       </div>
       <div className="form-group">
-        <label>Статус (необязательно)</label>
-        <input className="form-control" value={form.status} onChange={e => update('status', e.target.value)} placeholder="Завершено успешно" />
+        <label>Категория</label>
+        <select className="form-control" value={form.category || 'individual'} onChange={e => update('category', e.target.value)}>
+          <option value="individual">Физические лица</option>
+          <option value="corporate">Юридические лица</option>
+          <option value="complex">Сложные дела</option>
+        </select>
+      </div>
+      <div className="form-group">
+        <label>Результат (badge на карточке)</label>
+        <select className="form-control" value={form.status} onChange={e => update('status', e.target.value)}>
+          <option value="">— не указывать —</option>
+          <option value="Списано">Списано</option>
+          <option value="Имущество сохранено">Имущество сохранено</option>
+          <option value="Защита директора">Защита директора</option>
+          <option value="Освобождение от долгов">Освобождение от долгов</option>
+        </select>
       </div>
       <div className="form-group">
         <label>Списанная сумма</label>
