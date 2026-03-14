@@ -27,12 +27,20 @@ const CHECK_ICON = (
 
 export default function Platform() {
   const [screenshotUrl, setScreenshotUrl] = useState<string>('');
+  const [lightboxOpen, setLightboxOpen] = useState(false);
 
   useEffect(() => {
     api.settings.getAll().then(s => {
       if (s.platform_screenshot) setScreenshotUrl(s.platform_screenshot);
     }).catch(() => {});
   }, []);
+
+  useEffect(() => {
+    if (!lightboxOpen) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setLightboxOpen(false); };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [lightboxOpen]);
 
   return (
     <section className="platform-section reveal">
@@ -52,12 +60,31 @@ export default function Platform() {
           {/* Right — mockup + cards */}
           <div className="platform-right">
 
+            {/* Lightbox */}
+            {lightboxOpen && (
+              <div
+                className="platform-lightbox-overlay"
+                onClick={() => setLightboxOpen(false)}
+              >
+                <button className="platform-lightbox-close" onClick={() => setLightboxOpen(false)} aria-label="Закрыть">✕</button>
+                <img
+                  src={screenshotUrl}
+                  alt="Личный кабинет"
+                  className="platform-lightbox-img"
+                />
+              </div>
+            )}
+
             {/* Dashboard UI mockup or uploaded screenshot */}
             {screenshotUrl ? (
-              <div className="platform-mockup platform-mockup--screenshot">
+              <div
+                className="platform-mockup platform-mockup--screenshot platform-mockup--clickable"
+                onClick={() => setLightboxOpen(true)}
+                title="Нажмите для просмотра"
+              >
                 <div className="platform-mockup-chrome">
                   <div className="platform-mockup-dots"><span /><span /><span /></div>
-                  <div className="platform-mockup-url">cabinet.аспб.рф</div>
+                  <div className="platform-mockup-url">sau.pro</div>
                 </div>
                 <img src={screenshotUrl} alt="Личный кабинет" className="platform-mockup-img" />
               </div>
@@ -67,7 +94,7 @@ export default function Platform() {
                 <div className="platform-mockup-dots">
                   <span /><span /><span />
                 </div>
-                <div className="platform-mockup-url">cabinet.аспб.рф</div>
+                <div className="platform-mockup-url">sau.pro</div>
               </div>
               <div className="platform-mockup-body">
                 <div className="platform-mock-header">
