@@ -54,6 +54,7 @@ export default function Header({ logo, ctaText, ctaHref, items }: HeaderProps) {
           <a href="/" className="logo">
             <span>{logo}</span>
             <span className="logo-dot" />
+            <span className="logo-tagline">Агенства банкротства<br />Контроль ваших процедур</span>
           </a>
           <nav className="primary-nav">
             {items.map((item) => {

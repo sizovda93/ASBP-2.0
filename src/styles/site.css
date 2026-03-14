@@ -190,6 +190,18 @@ header.main-header {
     border-radius: 50%;
     box-shadow: 0 0 10px var(--accent-blue);
 }
+.logo-tagline {
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    line-height: 1.4;
+    color: var(--text-secondary);
+    opacity: 0.7;
+    text-transform: uppercase;
+    border-left: 1px solid rgba(255,255,255,0.15);
+    padding-left: 10px;
+    margin-left: 2px;
+}
 nav.primary-nav { display: flex; gap: 32px; align-items: center; }
 
 .nav-item {
