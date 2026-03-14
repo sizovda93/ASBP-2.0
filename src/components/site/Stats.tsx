@@ -39,6 +39,27 @@ export default function Stats({ items }: StatsProps) {
   if (!items.length) return null;
   return (
     <section className="stats-section reveal">
+      <svg className="section-bg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 500" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <pattern id="stats-grid" width="48" height="48" patternUnits="userSpaceOnUse">
+            <path d="M 48 0 L 0 0 0 48" fill="none" stroke="rgba(46,184,122,0.06)" strokeWidth="0.5"/>
+          </pattern>
+          <radialGradient id="stats-glow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="rgba(46,184,122,0.1)"/>
+            <stop offset="100%" stopColor="rgba(46,184,122,0)"/>
+          </radialGradient>
+        </defs>
+        <rect width="1440" height="500" fill="url(#stats-grid)"/>
+        <rect width="1440" height="500" fill="url(#stats-glow)"/>
+        {/* arcs */}
+        <ellipse cx="720" cy="-40" rx="700" ry="320" fill="none" stroke="rgba(46,184,122,0.06)" strokeWidth="0.8"/>
+        <ellipse cx="720" cy="-40" rx="460" ry="200" fill="none" stroke="rgba(46,184,122,0.045)" strokeWidth="0.6"/>
+        {/* connection lines */}
+        <line x1="0" y1="250" x2="720" y2="0" stroke="rgba(46,184,122,0.05)" strokeWidth="0.6"/>
+        <line x1="1440" y1="250" x2="720" y2="0" stroke="rgba(46,184,122,0.05)" strokeWidth="0.6"/>
+        <line x1="360" y1="500" x2="720" y2="0" stroke="rgba(46,184,122,0.035)" strokeWidth="0.5"/>
+        <line x1="1080" y1="500" x2="720" y2="0" stroke="rgba(46,184,122,0.035)" strokeWidth="0.5"/>
+      </svg>
       <div className="container">
         <div className="stats-header">
           <div className="badge" style={{ marginBottom: '16px' }}>Результаты</div>
