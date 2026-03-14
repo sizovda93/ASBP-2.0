@@ -2640,11 +2640,23 @@ nav.primary-nav { display: flex; gap: 32px; align-items: center; }
     border-radius: 20px;
     font-size: 12px;
     font-weight: 600;
-    background: rgba(46,184,122,0.14);
-    border: 1px solid rgba(46,184,122,0.38);
-    color: rgba(70,220,145,1);
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.55);
     white-space: nowrap;
     letter-spacing: 0.01em;
+}
+/* Large (green) cards — green-tinted badge */
+.case-card.large .case-result-badge {
+    background: rgba(46,184,122,0.10);
+    border-color: rgba(46,184,122,0.25);
+    color: rgba(70,210,138,0.85);
+}
+/* Small (blue) cards — blue-tinted badge */
+.case-card.small .case-result-badge {
+    background: rgba(80,140,220,0.10);
+    border-color: rgba(80,140,220,0.25);
+    color: rgba(110,170,240,0.85);
 }
 
 /* Green dot status */

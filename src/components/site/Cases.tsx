@@ -65,7 +65,7 @@ export default function Cases({ tag, title, items }: CasesProps) {
             >
               {/* Row 1: result badge */}
               <div className="case-meta">
-                {c.status && <span className="case-result-badge">{c.status}</span>}
+                <span className="case-result-badge">{c.status || 'Завершено успешно'}</span>
               </div>
 
               {/* Row 2: type label */}
