@@ -924,9 +924,9 @@ nav.primary-nav { display: flex; gap: 32px; align-items: center; }
         /* cold green glow bottom-left */
         radial-gradient(ellipse 50% 40% at 10% 100%, rgba(56,210,140,0.09) 0%, transparent 55%),
         /* thin grid */
-        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-    background-size: auto, auto, 48px 48px, 48px 48px;
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: auto, auto, 52px 52px, 52px 52px;
     background-position: top right, bottom left, 0 0, 0 0;
     border-top: 1px solid rgba(255,255,255,0.07);
     border-bottom: 1px solid rgba(255,255,255,0.07);
@@ -1364,6 +1364,13 @@ nav.primary-nav { display: flex; gap: 32px; align-items: center; }
     padding: 100px 0;
     position: relative;
     overflow: hidden;
+    background-color: transparent;
+    background-image:
+        radial-gradient(ellipse 78% 56% at 50% 82%, rgba(46,190,130,0.055) 0%, transparent 66%),
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: auto, 52px 52px, 52px 52px;
+    background-position: bottom center, 0 0, 0 0;
 }
 .training-bg {
     position: absolute;
@@ -1372,6 +1379,7 @@ nav.primary-nav { display: flex; gap: 32px; align-items: center; }
     height: 100%;
     pointer-events: none;
     z-index: 0;
+    opacity: 0.95;
 }
 .training-section .container {
     position: relative;

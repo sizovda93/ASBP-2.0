@@ -21,15 +21,11 @@ export default function Training() {
     <section className="training-section reveal">
       <svg className="training-bg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 600" preserveAspectRatio="xMidYMid slice">
         <defs>
-          <pattern id="train-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(46,184,122,0.09)" strokeWidth="0.7"/>
-          </pattern>
           <radialGradient id="train-glow" cx="50%" cy="85%" r="40%">
             <stop offset="0%" stopColor="rgba(46,184,122,0.14)"/>
             <stop offset="100%" stopColor="rgba(46,184,122,0)"/>
           </radialGradient>
         </defs>
-        <rect width="1440" height="600" fill="url(#train-grid)"/>
         <rect width="1440" height="600" fill="url(#train-glow)"/>
         <line x1="200" y1="0" x2="200" y2="600" stroke="rgba(46,184,122,0.055)" strokeWidth="0.8"/>
         <line x1="480" y1="0" x2="480" y2="600" stroke="rgba(46,184,122,0.055)" strokeWidth="0.8"/>
