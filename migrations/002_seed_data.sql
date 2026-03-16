@@ -27,7 +27,7 @@ INSERT INTO site_settings (setting_key, setting_value) VALUES
   ('hero_btn_primary', 'Узнать условия партнерства'),
   ('hero_btn_primary_href', '#contact'),
   ('hero_btn_secondary', 'Смотреть практику'),
-  ('hero_btn_secondary_href', '#cases'),
+  ('hero_btn_secondary_href', '/platform'),
   ('hero_background_image', '')
 ON CONFLICT (setting_key) DO NOTHING;
 
@@ -42,8 +42,8 @@ ON CONFLICT (setting_key) DO NOTHING;
 -- Contact settings
 INSERT INTO site_settings (setting_key, setting_value) VALUES
   ('contact_tag', 'Инициация процесса'),
-  ('contact_title', 'Начните работу с нами'),
-  ('contact_subtitle', 'Оставьте заявку, и наш ведущий арбитражный управляющий свяжется с вами для первичного анализа ситуации.'),
+  ('contact_title', 'Подберём формат сотрудничества для вашей практики'),
+  ('contact_subtitle', 'Оставьте заявку — мы свяжемся с вами, уточним задачу и предложим подходящий формат: сопровождение дел, подключение платформы или обучение команды.'),
   ('contact_phone', '8 800 222 33 64'),
   ('contact_email', 'info@aspb.pro'),
   ('contact_debt_options', '["От 500 тыс. до 1 млн руб.","От 1 млн до 5 млн руб.","Более 5 млн руб."]')

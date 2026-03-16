@@ -152,21 +152,63 @@ export default function TrainingPage() {
           <div className="container" style={{ display: 'flex', justifyContent: 'center' }}>
             <div className="hero-widget">
               <div className="hero-inner">
-                <div className="hero-content">
-                  <div className="hero-label">
-                    <div className="hero-icon-container" style={{ background: 'linear-gradient(135deg, #2eb87a, #1a7a4a)' }}>
-                      <svg viewBox="0 0 24 24">
-                        <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z" />
-                      </svg>
+                <div className="training-hero-layout">
+                  <div className="hero-content training-hero-copy">
+                    <div className="hero-label">
+                      <div className="hero-icon-container" style={{ background: 'linear-gradient(135deg, #2eb87a, #1a7a4a)' }}>
+                        <svg viewBox="0 0 24 24">
+                          <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z" />
+                        </svg>
+                      </div>
+                      <span className="hero-label-text">Обучение для партнёров</span>
                     </div>
-                    <span className="hero-label-text">Обучение для партнёров</span>
+                    <h1 className="hero-title hero-title--normal-case training-hero-title text-gradient">
+                      Обучение для партнёров<br />и их команды
+                    </h1>
+                    <p className="hero-subtitle training-hero-subtitle">
+                      Практические программы для юристов, адвокатов,<br />
+                      финансовых управляющих, руководителей практик<br />
+                      и сотрудников, работающих с банкротством и смежными задачами.
+                    </p>
                   </div>
-                  <h1 className="hero-title text-gradient">
-                    Обучение для партнёров<br />и их команды
-                  </h1>
-                  <p className="hero-subtitle">
-                    Практические программы для юристов, адвокатов, финансовых управляющих, руководителей практик и сотрудников, работающих с банкротством и смежными задачами.
-                  </p>
+
+                  <div className="training-hero-preview" aria-hidden="true">
+                    <div className="training-hero-preview-top">
+                      <span className="training-hero-preview-tag">Кому подходит</span>
+                      <span className="training-hero-preview-note">Практические роли</span>
+                    </div>
+
+                    <span className="training-hero-line training-hero-line--one" />
+                    <span className="training-hero-line training-hero-line--two" />
+                    <span className="training-hero-line training-hero-line--three" />
+                    <span className="training-hero-node training-hero-node--one" />
+                    <span className="training-hero-node training-hero-node--two" />
+
+                    <div className="training-hero-ghost training-hero-ghost--one" />
+                    <div className="training-hero-ghost training-hero-ghost--two" />
+
+                    <div className="training-hero-card training-hero-card--one">
+                      <span className="training-hero-card-label">Практика</span>
+                      <div className="training-hero-pill-row">
+                        <span className="training-hero-pill">Юристы</span>
+                        <span className="training-hero-pill">Адвокаты</span>
+                      </div>
+                    </div>
+
+                    <div className="training-hero-card training-hero-card--two">
+                      <span className="training-hero-card-label">Процедуры</span>
+                      <div className="training-hero-pill-row">
+                        <span className="training-hero-pill">Финансовые управляющие</span>
+                      </div>
+                    </div>
+
+                    <div className="training-hero-card training-hero-card--three">
+                      <span className="training-hero-card-label">Рост</span>
+                      <div className="training-hero-pill-row">
+                        <span className="training-hero-pill">Руководители практик</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -174,7 +216,7 @@ export default function TrainingPage() {
         </section>
 
         {/* Courses Grid */}
-        <section className="training-section reveal" style={{ paddingTop: '0' }}>
+        <section className="training-section reveal">
           <div className="container">
             <div className="training-grid">
               {COURSES.map((course) => (

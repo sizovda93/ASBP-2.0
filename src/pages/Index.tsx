@@ -53,12 +53,7 @@ export default function Index() {
   }, [loaded]);
 
   const navItems = settings.nav_items ? JSON.parse(settings.nav_items) : [];
-  const debtOptions = settings.contact_debt_options ? JSON.parse(settings.contact_debt_options) : [];
-  const heroSecondaryHref = settings.hero_btn_secondary_href?.trim();
-  const heroSecondaryResolvedHref =
-    !heroSecondaryHref || heroSecondaryHref === '#cases'
-      ? '/platform'
-      : heroSecondaryHref;
+  const heroSecondaryResolvedHref = '/platform';
 
   const [legalType, setLegalType] = useState<string | null>(null);
   const openLegal = useCallback((type: string) => setLegalType(type), []);
@@ -106,11 +101,8 @@ export default function Index() {
         <Formats />
         <Contact
           tag={settings.contact_tag}
-          title={settings.contact_title}
-          subtitle={settings.contact_subtitle}
-          phone={settings.contact_phone}
-          email={settings.contact_email}
-          debtOptions={debtOptions}
+          title="Подберём формат сотрудничества для вашей практики"
+          subtitle="Оставьте заявку — мы свяжемся с вами, уточним задачу и предложим подходящий формат: сопровождение дел, подключение платформы или обучение команды."
         />
       </main>
       <SiteFooter
