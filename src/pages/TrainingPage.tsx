@@ -13,40 +13,65 @@ const COURSES = [
   { icon: '🎓', title: 'Практика для действующих специалистов' },
 ];
 
+const PROG_ICONS: Record<string, string> = {
+  shield: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+  lock: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>`,
+  book: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>`,
+  chart: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>`,
+  team: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+  briefcase: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>`,
+};
+
 const PROGRAMS = [
+  // Верхний ряд — экспертные юридические программы
   {
+    icon: 'shield',
     title: 'Оспаривание сделок',
-    desc: 'Полный обзор практики БФЛ и рабочие подходы к сложным ситуациям.',
+    desc: 'Практика, риски и ключевые подходы судов.',
+    badge: 'Практический курс',
+    accent: true,
   },
   {
+    icon: 'lock',
     title: 'Неосвобождение от обязательств',
-    desc: 'Разбор одного из самых чувствительных рисков процедуры банкротства.',
+    desc: 'Основания, ошибки и судебная логика по делам.',
+    badge: 'Судебная практика',
   },
   {
+    icon: 'book',
     title: 'Юридические аспекты БФЛ',
-    desc: 'Системная база для старта и усиления практики банкротства физических лиц.',
+    desc: 'Ключевые этапы, позиции и правовые инструменты.',
+    badge: 'База практики',
   },
+  // Нижний ряд — системная практика, команда, развитие
   {
-    title: 'Продажи юридических услуг',
-    desc: 'Как выстраивать продажи в нише долгов и банкротства без хаоса и потерь.',
-  },
-  {
+    icon: 'team',
     title: 'Эффективная команда',
-    desc: 'Подходы к управлению людьми, ролями и качеством работы внутри практики.',
+    desc: 'Роли, процессы и системная работа внутри практики.',
+    badge: 'Управление',
+    accent: true,
   },
   {
+    icon: 'briefcase',
     title: 'Практика для действующих специалистов',
-    desc: 'Прикладное обучение без лишней теории — с фокусом на реальные кейсы и результат.',
+    desc: 'Прикладные решения для тех, кто уже работает в рынке.',
+    badge: 'Повышение квалификации',
+  },
+  {
+    icon: 'chart',
+    title: 'Продажи юридических услуг',
+    desc: 'Как выстраивать поток клиентов и усиливать доверие.',
+    badge: 'Развитие практики',
   },
 ];
 
 const RESULTS = [
-  { title: 'Быстрее вход в нишу' },
-  { title: 'Сильнее команда' },
-  { title: 'Выше конверсия в договор' },
-  { title: 'Меньше ошибок в работе' },
-  { title: 'Больше экспертизы' },
-  { title: 'Более системный рост практики' },
+  { icon: 'M13 2L3 14h9l-1 8 10-12h-9l1-8z', title: 'Быстрее вход в нишу' },
+  { icon: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2 M23 21v-2a4 4 0 0 0-3-3.87 M16 3.13a4 4 0 0 1 0 7.75', title: 'Сильнее команда' },
+  { icon: 'M22 12h-4l-3 9L9 3l-3 9H2', title: 'Выше конверсия в договор' },
+  { icon: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z', title: 'Меньше ошибок в работе' },
+  { icon: 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z', title: 'Больше экспертизы', accent: true },
+  { icon: 'M18 20V10 M12 20V4 M6 20v-6', title: 'Более системный рост практики', accent: true },
 ];
 
 const AUDIENCE = [
@@ -54,7 +79,7 @@ const AUDIENCE = [
   { title: 'Адвокаты' },
   { title: 'Финансовые управляющие' },
   { title: 'Помощники и сотрудники' },
-  { title: 'Руководители практик' },
+  { title: 'Руководители юридических команд' },
   { title: 'Партнёры юридических компаний' },
 ];
 
@@ -152,9 +177,14 @@ export default function TrainingPage() {
           <div className="container" style={{ display: 'flex', justifyContent: 'center' }}>
             <div className="hero-widget">
               <div className="hero-inner">
+                <div className="training-hero-atmosphere" aria-hidden="true">
+                  <span className="training-hero-atmosphere-grid" />
+                  <span className="training-hero-atmosphere-streak training-hero-atmosphere-streak--one" />
+                  <span className="training-hero-atmosphere-streak training-hero-atmosphere-streak--two" />
+                </div>
                 <div className="training-hero-layout">
                   <div className="hero-content training-hero-copy">
-                    <div className="hero-label">
+                    <div className="hero-label training-hero-label">
                       <div className="hero-icon-container" style={{ background: 'linear-gradient(135deg, #2eb87a, #1a7a4a)' }}>
                         <svg viewBox="0 0 24 24">
                           <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z" />
@@ -166,10 +196,13 @@ export default function TrainingPage() {
                       Обучение для партнёров<br />и их команды
                     </h1>
                     <p className="hero-subtitle training-hero-subtitle">
-                      Практические программы для юристов, адвокатов,<br />
-                      финансовых управляющих, руководителей практик<br />
-                      и сотрудников, работающих с банкротством и смежными задачами.
+                      Практические программы для юристов, адвокатов и финансовых управляющих, руководителей юридических команд и сотрудников, работающих с банкротством и смежными задачами.
                     </p>
+                    <div className="training-hero-meta" aria-label="Формат обучения">
+                      <span className="training-hero-meta-primary">Практические программы</span>
+                      <span className="training-hero-meta-item">Для команды партнера</span>
+                      <span className="training-hero-meta-item">Внедрение в работу</span>
+                    </div>
                   </div>
 
                   <div className="training-hero-preview" aria-hidden="true">
@@ -205,26 +238,12 @@ export default function TrainingPage() {
                     <div className="training-hero-card training-hero-card--three">
                       <span className="training-hero-card-label">Рост</span>
                       <div className="training-hero-pill-row">
-                        <span className="training-hero-pill">Руководители практик</span>
+                        <span className="training-hero-pill">Руководители юридических команд</span>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Courses Grid */}
-        <section className="training-section reveal">
-          <div className="container">
-            <div className="training-grid">
-              {COURSES.map((course) => (
-                <div key={course.title} className="training-card">
-                  <div className="training-card-dot" />
-                  <span className="training-card-title">{course.title}</span>
-                </div>
-              ))}
             </div>
           </div>
         </section>
@@ -236,13 +255,38 @@ export default function TrainingPage() {
               <h2 className="programs-title">Направления программ</h2>
             </div>
             <div className="programs-grid">
-              {PROGRAMS.map((p, i) => (
-                <div key={p.title} className="programs-card">
-                  <span className="programs-card-num">0{i + 1}</span>
-                  <h3 className="programs-card-title">{p.title}</h3>
-                  <p className="programs-card-desc">{p.desc}</p>
+              {PROGRAMS.map((p) => (
+                <div key={p.title} className={`programs-card${p.accent ? ' programs-card--accent' : ''}`}>
+                  <div className="programs-card-top">
+                    <div
+                      className="programs-card-icon"
+                      dangerouslySetInnerHTML={{ __html: PROG_ICONS[p.icon] }}
+                    />
+                    <span className="programs-card-badge">{p.badge}</span>
+                  </div>
+                  <div className="programs-card-content">
+                    <h3 className="programs-card-title">{p.title}</h3>
+                    <p className="programs-card-desc">{p.desc}</p>
+                  </div>
+                  {p.accent && (
+                    <div className="programs-card-cta">
+                      <span>Подробнее</span>
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
+                  )}
                 </div>
               ))}
+            </div>
+
+            <div className="programs-inline-cta">
+              <div className="programs-inline-cta-text">
+                <h3 className="programs-inline-cta-title">Не знаете, с какой программы начать?</h3>
+                <p className="programs-inline-cta-desc">Подскажем, какое направление обучения подойдёт под вашу роль, команду и текущие задачи практики.</p>
+              </div>
+              <div className="programs-inline-cta-buttons">
+                <button className="btn btn-primary" onClick={() => setCtaModal(true)}>Подобрать программу</button>
+                <a href="http://bankrot.academy/" target="_blank" rel="noopener noreferrer" className="btn btn-glass">Перейти в Академию АСПБ</a>
+              </div>
             </div>
           </div>
         </section>
@@ -252,19 +296,21 @@ export default function TrainingPage() {
           <div className="container">
             <div className="results-header">
               <h2 className="results-title">Что даёт обучение вашей практике</h2>
+              <p className="results-subtitle">Конкретные изменения, которые происходят после прохождения программ внутри практики и команды.</p>
             </div>
             <div className="results-grid">
-              {RESULTS.map((item, i) => (
-                <div key={item.title} className="results-card">
-                  <div className="results-card-arrow">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M7 17L17 7M17 7H7M17 7v10" />
+              {RESULTS.map((item) => (
+                <div key={item.title} className={`results-card${item.accent ? ' results-card--accent' : ''}`}>
+                  <div className="results-card-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                      <path d={item.icon} />
                     </svg>
                   </div>
                   <span className="results-card-title">{item.title}</span>
                 </div>
               ))}
             </div>
+
           </div>
         </section>
 

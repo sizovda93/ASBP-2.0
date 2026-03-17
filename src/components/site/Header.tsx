@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import type { NavItem } from '../../lib/api';
 
 interface HeaderProps {
@@ -9,6 +9,7 @@ interface HeaderProps {
 }
 
 export default function Header({ logo, ctaText, ctaHref, items }: HeaderProps) {
+  const location = useLocation();
   const resolveItemHref = (item: NavItem): string => {
     if (item.href && item.href !== '#') return item.href;
     if (item.title.trim().toLowerCase() === 'о нас') return '/about';
@@ -89,7 +90,14 @@ export default function Header({ logo, ctaText, ctaHref, items }: HeaderProps) {
               );
             })}
           </nav>
-          <a href={ctaHref || '#contact'} className="btn btn-glass">
+          <a
+            href={(() => {
+              const href = ctaHref || '#contact';
+              if (href.startsWith('#') && location.pathname !== '/') return `/${href}`;
+              return href;
+            })()}
+            className="btn btn-glass"
+          >
             {ctaText || 'Связаться'}
           </a>
         </div>
