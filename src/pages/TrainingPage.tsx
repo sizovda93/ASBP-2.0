@@ -75,12 +75,12 @@ const RESULTS = [
 ];
 
 const AUDIENCE = [
-  { title: 'Юристы' },
-  { title: 'Адвокаты' },
-  { title: 'Финансовые управляющие' },
-  { title: 'Помощники и сотрудники' },
-  { title: 'Руководители юридических команд' },
-  { title: 'Партнёры юридических компаний' },
+  { title: 'Юристы', desc: 'Практика БФЛ, правовые позиции и рабочие инструменты.', accent: true },
+  { title: 'Адвокаты', desc: 'Сложные кейсы, защита интересов и стратегия работы.' },
+  { title: 'Финансовые управляющие', desc: 'Практика процедур, риски и прикладные решения.', accent: true },
+  { title: 'Помощники и сотрудники', desc: 'Стандарты работы, процессы и снижение ошибок.' },
+  { title: 'Руководители юридических команд', desc: 'Управление людьми, качеством и внутренними процессами.' },
+  { title: 'Партнёры юридических компаний', desc: 'Развитие практики, масштабирование и системный контроль.' },
 ];
 
 export default function TrainingPage() {
@@ -316,20 +316,30 @@ export default function TrainingPage() {
 
         {/* Audience Block */}
         <section className="audience-section reveal">
+          <div className="audience-bg" aria-hidden="true">
+            <span className="audience-bg-grid" />
+            <span className="audience-bg-glow" />
+          </div>
           <div className="container">
             <div className="audience-header">
-              <h2 className="audience-title">Кому подойдёт обучение</h2>
+              <h2 className="audience-title">Кому подойдёт обучение АСПБ</h2>
+              <p className="audience-subtitle">
+                Практические программы для специалистов и команд, которые работают с банкротством, усиливают экспертизу и выстраивают практику системно.
+              </p>
             </div>
             <div className="audience-grid">
               {AUDIENCE.map((item) => (
-                <div key={item.title} className="audience-card">
+                <div key={item.title} className={`audience-card${item.accent ? ' audience-card--accent' : ''}`}>
                   <div className="audience-card-icon">
                     <svg viewBox="0 0 24 24">
                       <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
                       <circle cx="12" cy="7" r="4" />
                     </svg>
                   </div>
-                  <span className="audience-card-title">{item.title}</span>
+                  <div className="audience-card-body">
+                    <span className="audience-card-title">{item.title}</span>
+                    <p className="audience-card-desc">{item.desc}</p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -338,33 +348,58 @@ export default function TrainingPage() {
 
         {/* How it Works Block */}
         <section className="how-section reveal">
+          <div className="how-bg" aria-hidden="true">
+            <span className="how-bg-grid" />
+            <span className="how-bg-glow" />
+          </div>
           <div className="container">
             <div className="how-inner">
               <div className="how-left">
                 <span className="section-tag">Формат</span>
                 <h2 className="how-title">Как проходит обучение</h2>
+                <p className="how-supporting">Практичный формат для специалистов и команд</p>
+                <div className="how-pills">
+                  <span className="how-pill">Онлайн</span>
+                  <span className="how-pill">В своём темпе</span>
+                  <span className="how-pill">С обратной связью</span>
+                </div>
               </div>
               <div className="how-right">
                 <p className="how-text">
-                  Практические материалы, прикладные разборы, структурированные программы и
-                  знания, которые можно внедрять в работу сразу после прохождения.
+                  Практические программы, прикладные разборы и материалы, которые можно использовать в работе сразу после обучения.
                 </p>
-                <div className="how-features">
-                  <div className="how-feature">
-                    <div className="how-feature-dot" />
-                    <span>Онлайн-формат, доступный в любое время</span>
+                <div className="how-features-grid">
+                  <div className="how-fcard">
+                    <div className="how-fcard-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                        <circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
+                      </svg>
+                    </div>
+                    <span className="how-fcard-text">Онлайн-доступ в удобное время</span>
                   </div>
-                  <div className="how-feature">
-                    <div className="how-feature-dot" />
-                    <span>Материалы остаются у вас после окончания</span>
+                  <div className="how-fcard">
+                    <div className="how-fcard-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" /><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                      </svg>
+                    </div>
+                    <span className="how-fcard-text">Материалы сохраняются после окончания</span>
                   </div>
-                  <div className="how-feature">
-                    <div className="how-feature-dot" />
-                    <span>Проверка знаний и обратная связь с экспертами</span>
+                  <div className="how-fcard">
+                    <div className="how-fcard-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" />
+                      </svg>
+                    </div>
+                    <span className="how-fcard-text">Проверка знаний и обратная связь</span>
                   </div>
-                  <div className="how-feature">
-                    <div className="how-feature-dot" />
-                    <span>Фокус на результат без излишней теории</span>
+                  <div className="how-fcard">
+                    <div className="how-fcard-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                      </svg>
+                    </div>
+                    <span className="how-fcard-text">Фокус на применении, а не на теории</span>
                   </div>
                 </div>
               </div>
@@ -376,25 +411,46 @@ export default function TrainingPage() {
         <section className="training-cta-section reveal">
           <div className="container">
             <div className="training-cta-inner">
+              <div className="training-cta-bg" aria-hidden="true">
+                <span className="training-cta-bg-glow" />
+                <span className="training-cta-bg-highlight" />
+              </div>
               <div className="training-cta-text">
+                <span className="training-cta-label">Подбор программы</span>
                 <h2 className="training-cta-title">Получить программу обучения</h2>
                 <p className="training-cta-subtitle">
-                  Оставьте заявку — подберём программы под вашу роль, уровень подготовки и задачи команды.
-                  Или перейдите в Академию, чтобы посмотреть программы обучения самостоятельно.
+                  Подберём программу под вашу роль, уровень подготовки и задачи команды. Или перейдите в Академию и изучите направления самостоятельно.
                 </p>
+                <div className="training-cta-benefits">
+                  <span className="training-cta-benefit">
+                    <span className="training-cta-benefit-dot" />
+                    Для специалистов и команд
+                  </span>
+                  <span className="training-cta-benefit">
+                    <span className="training-cta-benefit-dot" />
+                    Под конкретные задачи практики
+                  </span>
+                  <span className="training-cta-benefit">
+                    <span className="training-cta-benefit-dot" />
+                    Быстрый старт выбора
+                  </span>
+                </div>
               </div>
-              <div className="training-cta-buttons">
-                <button className="btn btn-primary" onClick={() => setCtaModal(true)}>
-                  Получить программу
-                </button>
-                <a
-                  href="http://bankrot.academy/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-glass"
-                >
-                  Перейти в Академию АСПБ
-                </a>
+              <div className="training-cta-action">
+                <span className="training-cta-action-hint">Выберите удобный вариант</span>
+                <div className="training-cta-buttons">
+                  <button className="btn btn-primary" onClick={() => setCtaModal(true)}>
+                    Получить программу
+                  </button>
+                  <a
+                    href="http://bankrot.academy/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn training-cta-btn-secondary"
+                  >
+                    Посмотреть программы в Академии
+                  </a>
+                </div>
               </div>
             </div>
           </div>
