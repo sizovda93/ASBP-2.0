@@ -773,8 +773,19 @@ nav.primary-nav { display: flex; gap: 32px; align-items: center; }
     opacity: 0.34;
     animation: trainingHeroGhostFloatTwo 17s ease-in-out infinite;
 }
-.training-hero-card {
+.training-hero-cards {
     position: absolute;
+    top: 72px;
+    left: 26px;
+    right: 26px;
+    bottom: 26px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+    z-index: 2;
+}
+.training-hero-card {
     padding: 18px 18px 20px;
     border-radius: 24px;
     border: 1px solid rgba(46,184,122,0.16);
@@ -783,29 +794,6 @@ nav.primary-nav { display: flex; gap: 32px; align-items: center; }
         inset 0 1px 0 rgba(255,255,255,0.05),
         0 18px 44px rgba(0,0,0,0.24);
     backdrop-filter: blur(16px);
-    z-index: 2;
-    will-change: transform;
-}
-.training-hero-card--one {
-    width: 250px;
-    top: 96px;
-    left: 48px;
-    transform: rotate(-5deg);
-    animation: trainingHeroCardFloatOne 10.5s ease-in-out infinite;
-}
-.training-hero-card--two {
-    width: 276px;
-    top: 220px;
-    right: 38px;
-    transform: rotate(3deg);
-    animation: trainingHeroCardFloatTwo 11.8s ease-in-out infinite;
-}
-.training-hero-card--three {
-    width: 258px;
-    bottom: 64px;
-    left: 96px;
-    transform: rotate(-4deg);
-    animation: trainingHeroCardFloatThree 12.6s ease-in-out infinite;
 }
 .training-hero-card-label {
     display: block;
@@ -833,18 +821,6 @@ nav.primary-nav { display: flex; gap: 32px; align-items: center; }
     font-size: 14px;
     font-weight: 500;
     line-height: 1.2;
-}
-@keyframes trainingHeroCardFloatOne {
-    0%, 100% { transform: translate3d(0, 0, 0) rotate(-5deg); }
-    50% { transform: translate3d(12px, -10px, 0) rotate(-7deg); }
-}
-@keyframes trainingHeroCardFloatTwo {
-    0%, 100% { transform: translate3d(0, 0, 0) rotate(3deg); }
-    50% { transform: translate3d(-14px, 12px, 0) rotate(5deg); }
-}
-@keyframes trainingHeroCardFloatThree {
-    0%, 100% { transform: translate3d(0, 0, 0) rotate(-4deg); }
-    50% { transform: translate3d(10px, -14px, 0) rotate(-2deg); }
 }
 @keyframes trainingHeroGhostFloatOne {
     0%, 100% { transform: translate3d(0, 0, 0) rotate(-9deg); opacity: 0.42; }
@@ -4423,24 +4399,16 @@ footer {
         right: 18px;
     }
     .training-hero-preview-note { display: none; }
+    .training-hero-cards {
+        left: 18px;
+        right: 18px;
+        bottom: 18px;
+        top: 58px;
+        gap: 12px;
+    }
     .training-hero-card {
         padding: 14px 14px 16px;
         border-radius: 18px;
-    }
-    .training-hero-card--one {
-        width: 190px;
-        top: 78px;
-        left: 18px;
-    }
-    .training-hero-card--two {
-        width: 214px;
-        top: 164px;
-        right: 18px;
-    }
-    .training-hero-card--three {
-        width: 206px;
-        bottom: 28px;
-        left: 54px;
     }
     .training-hero-ghost--one,
     .training-hero-ghost--two { display: none; }

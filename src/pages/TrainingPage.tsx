@@ -220,25 +220,27 @@ export default function TrainingPage() {
                     <div className="training-hero-ghost training-hero-ghost--one" />
                     <div className="training-hero-ghost training-hero-ghost--two" />
 
-                    <div className="training-hero-card training-hero-card--one">
-                      <span className="training-hero-card-label">Практика</span>
-                      <div className="training-hero-pill-row">
-                        <span className="training-hero-pill">Юристы</span>
-                        <span className="training-hero-pill">Адвокаты</span>
+                    <div className="training-hero-cards">
+                      <div className="training-hero-card">
+                        <span className="training-hero-card-label">Практика</span>
+                        <div className="training-hero-pill-row">
+                          <span className="training-hero-pill">Юристы</span>
+                          <span className="training-hero-pill">Адвокаты</span>
+                        </div>
                       </div>
-                    </div>
 
-                    <div className="training-hero-card training-hero-card--two">
-                      <span className="training-hero-card-label">Процедуры</span>
-                      <div className="training-hero-pill-row">
-                        <span className="training-hero-pill">Финансовые управляющие</span>
+                      <div className="training-hero-card">
+                        <span className="training-hero-card-label">Процедуры</span>
+                        <div className="training-hero-pill-row">
+                          <span className="training-hero-pill">Финансовые управляющие</span>
+                        </div>
                       </div>
-                    </div>
 
-                    <div className="training-hero-card training-hero-card--three">
-                      <span className="training-hero-card-label">Рост</span>
-                      <div className="training-hero-pill-row">
-                        <span className="training-hero-pill">Руководители юридических команд</span>
+                      <div className="training-hero-card">
+                        <span className="training-hero-card-label">Рост</span>
+                        <div className="training-hero-pill-row">
+                          <span className="training-hero-pill">Руководители юридических команд</span>
+                        </div>
                       </div>
                     </div>
                   </div>
